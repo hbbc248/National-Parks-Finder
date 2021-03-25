@@ -1,5 +1,6 @@
 
 var parksAPIKey = "cLPFutN3JOEcVqfEXTU1EekbZDczkTNkqEsKFCDX";
+var weatherAPIKey = "8192203cac5ae6d369c41fb47e14d962";
 
 // funtion to get parks from (word, state);
 var getPark = function(word, state) {
@@ -14,9 +15,41 @@ var getPark = function(word, state) {
         if(response.ok) {
             response.json().then(function(data) {
                 console.log(data);
+                // call display data function
+
             });
         } else {
             alert("Error: " + response.status);
         }
     });
 };
+
+
+
+
+
+
+// function to get weather by lat and lon 
+var getWeather = function(lat, lon) {
+    var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + weatherAPIKey;
+    fetch(apiUrl).then(function(response){
+        // request was succesful
+        if(response.ok) {
+            response.json().then(function(data) {
+                console.log(data);
+                // call current weather display function
+            
+            });
+        } else {
+            alert("Error: " + response.status);
+        }
+    });
+};
+
+
+
+
+
+
+
+
