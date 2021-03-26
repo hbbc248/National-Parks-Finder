@@ -12,16 +12,59 @@
     <header>
         <h1 class="header-content" id="header-title">LifeFinder</h1>
     </header>
-    <section>
 
+    <section class="search columns section">
+        <div class="container">
+            <div class="column">
+                <!--search section-->
+                <div class="columns">
+                    <input id="word" type="text" placeholder="enter search key word">
+                    <select name="state" id="state-select" class="select">
+                        <option value="">--</option>
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AZ">AZ</option>
+                    </select>
+                    <button id="search">Search</button>
+                </div>
+                <div class="columns">
+                    <h2>Viewed History</h2>
+                </div>
+                <div class="columns">
+                    <ul id="history-list">
+                        <li>History</li>
+                        <li>History2</li>
+                        <li>History3</li>
+                    </ul>
+                </div>
+                <button id="clear">Clear History</button>
+            </div>
+            <div class="column">
+                search results
+            </div>
+        </div>
     </section>
 
-    <section>
-
+    <section class="park-info columns section">
+        <div class="container">
+            <div class="column is-one-quarter">
+                pictures
+            </div>
+            <div class="column">
+                park information
+            </div>
+        </div>
     </section>
 
-    <section>
-
+    <section class="weather columns">
+        <div class="container">
+            <div class="column is-one-quarter">
+                current weather
+            </div>
+            <div class="column">
+                5 day forecast
+            </div>
+        </div>
     </section>
 
     <footer>
