@@ -10,11 +10,64 @@
 
 <body>
     <header>
-        <h1 class="header-content" id="header-title">LifeFinder</h1>
+        <h1 class="header-content" id="header-title">HikeFinder</h1>
     </header>
-    
 
+    <section class="search columns section">
+        <div class="container">
+            <div class="column">
+                <!--search section-->
+                <div class="columns">
+                    <input id="word" type="text" placeholder="Enter Search Keyword">
+                    <select name="state" id="state-select" class="select">
+                        <option value="">--</option>
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AZ">AZ</option>
+                    </select>
+                    <button id="search">Search</button>
+                </div>
+                <div class="columns">
+                    <h2 class="section-head">Viewed History</h2>
+                </div>
+                <div class="columns">
+                    <ul id="history-list">
+                       
+                    </ul>
+                </div>
+                <button id="clear">Clear History</button>
+            </div>
+            <div class="column">
+                <h2 class="section-head">Search Results</h2>
+            </div>
+        </div>
+    </section>
 
+    <section class="park-columns section">
+        <div class="container">
+            <div class="column is-one-quarter" id="park-photos">
+                <h3 class="section-head">Photos</h3>
+            </div>
+            <div class="column" id="park-info">
+                <h3 class="section-head">Park Information</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="weather-columns">
+        <div class="container weather-container">
+            <div class="column is-one-quarter forecast" id="current-weather">
+                <h3 class="section-head">Current Weather</h3>
+            </div>
+            <div class="column forecast" id="five-day">
+                <h3 class="section-head">5 day forecast</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        
+    </footer>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
