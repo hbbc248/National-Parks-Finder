@@ -5,16 +5,199 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/bulma.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    
     <title>US National Park Finder</title>
 </head>
 
 <body>
-    <header class="header-content title has-text-centered">
-        <h1 class="has-text-danger" id="header-title">US National Park Finder</h1>
+    <header class="hero is-info is-mobile">
+        <div class="hero-body">
+          <p class="title">
+            Us National Park Finder
+          </p>
+          <p class="subtitle">
+            Discover the Wild
+          </p>
+        </div>
     </header>
 
-    <section class="search columns section content has-background-link-dark has-text-warning">
+    
+    <div class="columns box container is-fluid" id="all-search-container">
+        <div class="column is-auto"></div>
+    
+        <div class="column box is-4" >
+            <div class="columns is-centered">
+                <div class="is-1"></div>
+                <div class="column is-5">
+                    <h1><strong>Search</strong></h1>
+                    <input class="input is-medium is-info" type="text" placeholder="Search">
+                </div>
+                <div class="column is-6">
+                    <h1><strong>State</strong></h1>
+                    <div class="select is-primary">
+                        <select class="select is-primary" name="state" id="state-select" class="select">
+                            <option value="">--</option>
+                            <option value="AL">AL</option>
+                            <option value="AK">AK</option>
+                            <option value="AZ">AZ</option>
+                            <option value="AR">AR</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="HI">HI</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="IA">IA</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="ME">ME</option>
+                            <option value="MD">MD</option>
+                            <option value="MA">MA</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MS">MS</option>
+                            <option value="MO">MO</option>
+                            <option value="MT">MT</option>
+                            <option value="NE">NE</option>
+                            <option value="NV">NV</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NY">NY</option>
+                            <option value="NC">NC</option>
+                            <option value="ND">ND</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VT">VT</option>
+                            <option value="VA">VA</option>
+                            <option value="WA">WA</option>
+                            <option value="WV">WV</option>
+                            <option value="WI">WI</option>
+                            <option value="WY">WY</option>
+                        </select>  
+                    </div>  
+                    <button class="button is-medium is-primary" id="search">Search</button>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                
+                <div class="container box column is-6 is-fluid" id="history-container">
+                    <h1 class="subsection-title"><strong>History</strong></h1>
+                    <br>
+                    <ul>
+                        <li>Austin</li>
+                    </ul>
+                </div>
+                <div class="column is-auto"></div>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column">
+                    <button class="button is-danger is-medium is-light">Clear History</button>
+                </div>
+                <div class="column is-auto"> 
+                </div>
+            </div>
+        </div>
+
+        <div class="container is-fluid column is-7">
+            <div class="columns is-centered">
+                <div class="column is-auto"></div>
+                <div class="column  is-2">
+                    <h1 class="section-head"><strong>Search Results</strong></h1>
+                </div>
+                <div class="column is-auto"></div>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column is-1"></div>
+                <div class="column box is-auto" id="search-results-container">
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="column is-1"></div>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column is-auto"></div>
+                <div class="column is-2">
+                    <button class="button">
+                        <span class="icon">
+                            <i class="fas fa-arrow-left"></i>
+                        </span>
+                        </button>
+                    <button class="button">
+                    <span class="icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                    </button>
+                </div>
+                <div class="column is-auto"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns container is-fluid" id="park-info-container">
+        
+
+        <div class="column is-4">
+            <div class="columns is-centered">
+                <div class="column">
+                    <img src="assets/images/pexels-photo-417074.jpeg">
+                </div>
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column is-6">
+                    <button class="button">
+                        <span class="icon">
+                            <i class="fas fa-arrow-left"></i>
+                        </span>
+                        </button>
+                    <button class="button">
+                    <span class="icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-8">
+            <h1>About the Park</h1>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam dolores repellendus, sunt ea quod ex mollitia, saepe magni modi, facilis quaerat delectus esse qui error! Consequatur error suscipit odit est.
+            </p>
+        </div>
+    </div>
+
+    <div class="columns container is-fluid" id="all-weather-container">
+        <div class="column is-5">
+            
+        </div>
+        <div class="column is-7"></div>
+        
+    </div>
+    
+   
+
+    <!-- <section class="search columns section content has-background-link-dark has-text-warning">
                 <div class="column">
                     <h2 class="has-text-white">Search</h2>
                     <div class="columns">
@@ -100,9 +283,9 @@
                         </div>
                     </div>
                 </div>
-    </section>
+    </section> -->
 
-    <section class="park-info columns section content has-background-info-dark has-text-warning">
+    <!-- <section class="park-info columns section content has-background-info-dark has-text-warning">
        <div class="column">
             <h2 class="has-text-centered has-text-white" id="park-name">Park Name</h2>
             <div class="columns is-one-quarter" id="pictures">
@@ -134,7 +317,7 @@
                     <div class="column" id="day-5">day 5</div>
                 </div>
             </div>
-    </section>
+    </section> -->
 
     <footer>
         
@@ -142,5 +325,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </body>
 </html>
