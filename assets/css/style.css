@@ -3,22 +3,17 @@
 }
 
 
+
 .container {
     height: 300px;
-    margin: 10px;
-    
+    max-height: fit-content;
+    margin: 20px 10px;
+    min-height: 300px;
 }
+
 
 header {
     margin-bottom: 15px;
-}
-
-#history-container {
-    margin-top: 20px;
-}
-
-#search-results-container {
-    min-height: 300px;
 }
 
 #all-search-container {
@@ -32,3 +27,19 @@ header {
     border-top: grey 3px solid;
 }
 
+#park-info-container {
+    height: 400px;
+}
+
+#search-results-container {
+    height: 80%;
+}
+
+#results-card {
+    height: 80%;
+}
+
+#arrow-buttons {
+    min-width: 150px;
+    margin-top: 10px;
+}
