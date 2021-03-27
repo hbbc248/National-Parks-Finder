@@ -9,6 +9,7 @@ var historyList = {
     id: []
 };
 
+
 // funtion to get parks from (word, state);
 var getPark = function(word, state) {
     var apiUrl = "https://developer.nps.gov/api/v1/parks?q=" + word + "&stateCode=" + state + "&api_key=" + parksAPIKey;
@@ -21,6 +22,7 @@ var getPark = function(word, state) {
         // request was succesful
         if(response.ok) {
             response.json().then(function(data) {
+
                 parksData = data;
                 console.log(parksData);
                 // call display data function
@@ -43,6 +45,7 @@ var getParkByCode = function(parkCode) {
                 // call display data function with park index and data
                 var index = 0;
                 displayParkInfo(index, data);
+
             });
         } else {
             alert("Error: " + response.status);
@@ -59,7 +62,7 @@ var getWeather = function(lat, lon) {
             response.json().then(function(data) {
                 console.log(data);
                 // call current weather display function
-                
+
             });
         } else {
             alert("Error: " + response.status);
@@ -236,33 +239,7 @@ var displayParkInfo = function(index, data) {
             $("#operating-hours").append("<p>No exceptions</p>"); 
         }
     }
-
-
-
-
-
-
-
-
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 loadHistory();
