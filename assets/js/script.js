@@ -221,7 +221,23 @@ var displayParkInfo = function(index, data) {
     // hours of operation display
     $("#operating-hours").empty();
     $("#operating-hours").append("<p>Operating hours:</p>");
-    
+    var hours = data.data[index].operatingHours;
+    for (i = 0; i < hours.length; i++) {
+        $("#operating-hours").append("<p>" + (i+1) + ") " + hours[i].name + ". " + hours[i].description + "</p>");
+        $("#operating-hours").append("<p>Open-Hours: Sunday: " + hours[i].standardHours.sunday + "; Monday: " + hours[i].standardHours.monday + "; Tuesday: " + hours[i].standardHours.tuesday + "; Wednesday: " + hours[i].standardHours.wednesday + "; Thursday: " + hours[i].standardHours.thursday + "; Friday: " + hours[i].standardHours.friday + "; Saturday: " + hours[i].standardHours.saturday + ".</p>");
+        $("#operating-hours").append("<p>Exception days (Park Closed):</p>"); 
+        var exceptions = hours[i].exceptions;
+        if (exceptions.length > 0) {
+            // for loop for exceptions (park closed days)
+            for (e = 0; e < exceptions.length; e++) {
+                $("#operating-hours").append("<p>* " + exceptions[e].name + ": from " + exceptions[e].startDate + " to " + exceptions[e].endDate + "</p>");
+            }
+        } else {
+            $("#operating-hours").append("<p>No exceptions</p>"); 
+        }
+    }
+
+
 
 
 
