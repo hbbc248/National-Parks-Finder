@@ -218,7 +218,12 @@ var displayParkInfo = function(index, data) {
     for (i = 0; i < data.data[index].entranceFees.length; i++) {
         $("#entrance-fees").append("<p>Cost: $" + data.data[index].entranceFees[i].cost + ", " + data.data[index].entranceFees[i].description + "</p>");
     }
+    // hours of operation display
+    $("#operating-hours").empty();
+    $("#operating-hours").append("<p>Operating hours:</p>");
     
+
+
 
 
 
