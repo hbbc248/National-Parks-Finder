@@ -181,11 +181,14 @@ $("#history-list").click (function(e) {
     getParkByCode(parkCode);
 });
 
-// click on search button. Get city name and pass to getWeather
+// click on search button. 
 $("#search").on("click", function() {
+    // get values from word and state and pass to function
     var searchWord = $("#word").val();
     var state = $("#state-select").val();
     if ((searchWord) || (state)) {
+        // reset current page
+        currentPage = 1;
         getPark(searchWord, state);
     } else {
         alert("You must enter a search word and/or select state to search");
@@ -252,6 +255,7 @@ var displayParkInfo = function(index, data) {
     $("#more-info").attr("href", data.data[index].url);
     $("#more-info").attr("target", "_blank");
 };
+
 
 
 loadHistory();
