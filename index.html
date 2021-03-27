@@ -6,21 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>LifeFinder</title>
+    <title>US National Park Finder</title>
 </head>
 
 <body>
     <header>
-        <h1 class="header-content" id="header-title">LifeFinder</h1>
+        <h1 class="header-content is-size-1" id="header-title">US National Park Finder</h1>
     </header>
 
-    <section class="search columns section">
-        <div class="container">
-            <div class="column">
-                <!--search section-->
-                <div class="columns">
-                    <input id="word" type="text" placeholder="enter search key word">
-                    <select name="state" id="state-select" class="select">
+    <section class="search columns section content">
+                <div class="column">
+                    <h3 class="is-size-4">Search</h3>
+                    <div class="columns">
+                        <input id="word" type="text" placeholder="enter search key word">
+                    </div>
+                    <div class="column">
+                            <h2>Viewed History</h2>
+                            <button id="clear">Clear History</button>
+                            <ul id="history-list">
+                            </ul>
+                        </div>
+                </div>
+
+                <div class="column">
+                    <h3 class="is-size-4">State</h3>   
+                    <div class="columns">
+                        <select name="state" id="state-select" class="select">
                         <option value="">--</option>
                         <option value="AL">AL</option>
                         <option value="AK">AK</option>
@@ -72,52 +83,45 @@
                         <option value="WV">WV</option>
                         <option value="WI">WI</option>
                         <option value="WY">WY</option>
-                    </select>
-                    <button id="search">Search</button>
+                        </select>
+                        <button id="search">Search</button>
+                    </div>
                 </div>
-                <div class="columns">
-                    <h2>Viewed History</h2>
+
+                <div class="column is-half">
+                    <h3 class="is-size-4">Search Results</h3>
+                    <div class="columns">
+                        <div>
+                            <ul id="search-list">
+                            </ul>
+                            <p id="page-info"></p>
+                            <button id="left">Left</button>
+                            <button id="right">Right</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="columns">
-                    <button id="clear">Clear History</button>
-                    <ul id="history-list">
-                    </ul>
-                </div>
-                
-            </div>
-            <div class="column">
-                search results
-            </div>
-            <div class="column">
-                search results
-                <ul id="search-list">
-                </ul>
-                <p id="page-info"></p>
-                <button id="left">Left</button>
-                <button id="right">Right</button>
-            </div>
-        </div>
     </section>
 
-    <section class="park-info columns section">
-        <div class="container">
-            <h2 id="park-name"></h2>
-            <div class="column is-one-quarter" id="pictures">
+    <section class="park-info columns section content">
+       <div class="column">
+            <h2 id="park-name columns">Park NameAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</h2>
+            <div class="columns is-one-quarter" id="pictures">
                 pictures
+                <div class="column" id="park-info">
+                    <p id="park-description">descriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless words</p>
+                    <p id="activities">park activitiesdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless words</p>
+                    <div id="entrance-fees">entrance fees</div>
+                    <div id="operating-hours">hours of operation</div>
+                    <p id="directions">directions</p>
+                    <div><a id="direction-url">link to the direction of the park</a></div>
+                    <div><a id="more-info">link for more information of the park</a></div>
+                </div>
             </div>
-            <div class="column" id="park-info">
-               <p id="park-description">description</p>
-               <p id="activities">park activities</p>
-               <div id="entrance-fees">entrance fees</div>
-               <div id="operating-hours">hours of operation</div>
-               <p id="directions">directions</p>
-               <a id="direction-url">link to the direction of the park</a>
-               <a id="more-info">link for more information of the park</a>
-            </div>
+            
         </div>
     </section>
 
-    <section class="weather columns">
+    <section class="weather columns content">
         <div class="container">
             <div class="column is-one-quarter" id="current-weather">
                 current weather
