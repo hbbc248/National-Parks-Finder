@@ -41,7 +41,8 @@ var getParkByCode = function(parkCode) {
             response.json().then(function(data) {
                 console.log(data);
                 // call display data function with park index and data
-
+                var index = 0;
+                displayParkInfo(index, data);
             });
         } else {
             alert("Error: " + response.status);
@@ -68,7 +69,7 @@ var getWeather = function(lat, lon) {
 
 // result number of pages definition function
 var pagesDefinition = function (data) {
-    totalPages = Math.floor(data.total / 10) + 1;
+    totalPages = Math.floor((data.total - 1) / 10) + 1;
     displaySearchResults(data);
 };
 
@@ -116,7 +117,7 @@ $("#search-list").click (function(e) {
     // call history filter function
     historyCrop();
     // call display data function with park index and data
-
+    displayParkInfo(parkId, parksData);
 });
 
 // History list crop and saving funtion
@@ -156,7 +157,7 @@ var loadHistory = function() {
 // Clear History button was click
 $("#clear").on("click", function() {
     $("#history-list").empty();
-    var historyList = {
+    historyList = {
         text: [],
         id: []
     };
@@ -187,6 +188,82 @@ $("#search").on("click", function() {
         alert("You must enter a search word and/or select state to search");
     }
 });
+
+// Display park data function
+var displayParkInfo = function(index, data) {
+    // display park name
+    $("#park-name").text(data.data[index].fullName);
+    // call pictures pagination filter
+   
+
+    // display park description
+    $("#park-description").text("Description: " + data.data[index].description);
+    // display park activities
+    var activities = "";
+    for (i = 0; i < data.data[index].activities.length; i++) {
+        if (i < data.data[index].activities.length - 2) {
+            activities += data.data[index].activities[i].name + ", ";
+        }
+        if (i === data.data[index].activities.length - 2) {
+            activities += data.data[index].activities[i].name;
+        }
+        if (i === data.data[index].activities.length - 1) {
+            activities += " and " + data.data[index].activities[i].name + ".";
+        } 
+    }
+    $("#activities").text("Activities: " + activities);
+    // entrance fees display
+    $("#entrance-fees").empty();
+    $("#entrance-fees").append("<p>Entrance Fees:</p>");
+    for (i = 0; i < data.data[index].entranceFees.length; i++) {
+        $("#entrance-fees").append("<p>Cost: $" + data.data[index].entranceFees[i].cost + ", " + data.data[index].entranceFees[i].description + "</p>");
+    }
+    // hours of operation display
+    $("#operating-hours").empty();
+    $("#operating-hours").append("<p>Operating hours:</p>");
+    var hours = data.data[index].operatingHours;
+    for (i = 0; i < hours.length; i++) {
+        $("#operating-hours").append("<p>" + (i+1) + ") " + hours[i].name + ". " + hours[i].description + "</p>");
+        $("#operating-hours").append("<p>Open-Hours: Sunday: " + hours[i].standardHours.sunday + "; Monday: " + hours[i].standardHours.monday + "; Tuesday: " + hours[i].standardHours.tuesday + "; Wednesday: " + hours[i].standardHours.wednesday + "; Thursday: " + hours[i].standardHours.thursday + "; Friday: " + hours[i].standardHours.friday + "; Saturday: " + hours[i].standardHours.saturday + ".</p>");
+        $("#operating-hours").append("<p>Exception days (Park Closed):</p>"); 
+        var exceptions = hours[i].exceptions;
+        if (exceptions.length > 0) {
+            // for loop for exceptions (park closed days)
+            for (e = 0; e < exceptions.length; e++) {
+                $("#operating-hours").append("<p>* " + exceptions[e].name + ": from " + exceptions[e].startDate + " to " + exceptions[e].endDate + "</p>");
+            }
+        } else {
+            $("#operating-hours").append("<p>No exceptions</p>"); 
+        }
+    }
+
+
+
+
+
+
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 loadHistory();
 
