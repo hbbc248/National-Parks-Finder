@@ -2,8 +2,11 @@
 var parksAPIKey = "cLPFutN3JOEcVqfEXTU1EekbZDczkTNkqEsKFCDX";
 var weatherAPIKey = "8192203cac5ae6d369c41fb47e14d962";
 var parksData = {};
+var singleParkData = {};
 var totalPages = 0;
 var currentPage = 1;
+var picPage = 0;
+var picPageMax = 0;
 var historyList = {
     text: [],
     id: []
@@ -167,7 +170,7 @@ $("#clear").on("click", function() {
     saveHistoryList();
 });
 
-// city on history was clicked
+// Park on history was clicked
 $("#history-list").click (function(e) {
     var parkName = e.target.innerText;
     var parkCode = e.target.id;
@@ -199,8 +202,17 @@ $("#search").on("click", function() {
 var displayParkInfo = function(index, data) {
     // display park name
     $("#park-name").text(data.data[index].fullName);
-    // call pictures pagination filter
-   
+    // puts single park data into global variable to be use by other  functions
+    singleParkData = data.data[index];
+    console.log(singleParkData);
+    // call pictures display
+    picDisplay();
+    // get park lat and long for weather
+
+
+    // call weather fetch with lat and long
+
+
 
     // display park description
     $("#park-description").empty();
@@ -256,14 +268,60 @@ var displayParkInfo = function(index, data) {
     $("#more-info").attr("target", "_blank");
 };
 
+// park picturas pagination filter
+var picDisplay = function() {
+    picPage = 0;
+    picPageMax = singleParkData.images.length - 1;
+    // clean everything on pictures <div>
+    $("#pictures").empty();
+    $("#pictures").append("<p id='imgTitle'>" + singleParkData.images[picPage].title + "</p>");
+    $("#pictures").append("<img id='image' src='" + singleParkData.images[picPage].url + "' alt='" + singleParkData.images[picPage].altText + "'></img>");
+    $("#pictures").append("<p id='imgCaption'>" + singleParkData.images[picPage].caption + " - By: " + singleParkData.images[picPage].credit + ".</p>");
+    var picNum = picPage + 1;
+    var picLast = picPageMax + 1;
+    $("#pictures").append("<p id='pic-page'>Picture " + picNum + " out of " + picLast + "</p>");
+    $("#pictures").append("<button id='previous'>Previous</button>");
+    $("#pictures").append("<button id='next'>Next</button>");
+};
+
+// Next or previous picture button was clicked
+$("#pictures").click (function(e) {
+    var buttonId = e.target.id;
+    if (buttonId === "next") {
+        if (picPage < picPageMax) {
+            picPage++;
+            // call new picture display
+            newPictureDisplay();
+        }
+        return;
+    }
+    if (buttonId === "previous") {
+        if (picPage > 0) {
+            picPage--;
+            // call new picture display
+            newPictureDisplay;
+        }
+    }
+});
+
+// new picture display
+var newPictureDisplay = function() {
+    $("#imgTitle").text(singleParkData.images[picPage].title);
+    $("#image").attr("src", singleParkData.images[picPage].url);
+    $("#image").attr("alt", singleParkData.images[picPage].altText);
+    $("#imgCaption").text(singleParkData.images[picPage].caption + " - By: " + singleParkData.images[picPage].credit);
+    var picNum = picPage + 1;
+    var picLast = picPageMax + 1;
+    $("#pic-page").text("Picture " + picNum + " out of " + picLast);
+};
+
+
+
+
+
+
+
+
 
 
 loadHistory();
-
-
-
-
-
-
-
-
