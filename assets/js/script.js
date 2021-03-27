@@ -197,7 +197,9 @@ var displayParkInfo = function(index, data) {
    
 
     // display park description
-    $("#park-description").text("Description: " + data.data[index].description);
+    $("#park-description").empty();
+    $("#park-description").text("Description:");
+    $("#park-description").append("<p>" + data.data[index].description + "</p>");
     // display park activities
     var activities = "";
     for (i = 0; i < data.data[index].activities.length; i++) {
@@ -214,13 +216,13 @@ var displayParkInfo = function(index, data) {
     $("#activities").text("Activities: " + activities);
     // entrance fees display
     $("#entrance-fees").empty();
-    $("#entrance-fees").append("<p>Entrance Fees:</p>");
+    $("#entrance-fees").text("Entrance Fees:");
     for (i = 0; i < data.data[index].entranceFees.length; i++) {
         $("#entrance-fees").append("<p>Cost: $" + data.data[index].entranceFees[i].cost + ", " + data.data[index].entranceFees[i].description + "</p>");
     }
     // hours of operation display
     $("#operating-hours").empty();
-    $("#operating-hours").append("<p>Operating hours:</p>");
+    $("#operating-hours").text("Operating hours:");
     var hours = data.data[index].operatingHours;
     for (i = 0; i < hours.length; i++) {
         $("#operating-hours").append("<p>" + (i+1) + ") " + hours[i].name + ". " + hours[i].description + "</p>");
@@ -236,15 +238,16 @@ var displayParkInfo = function(index, data) {
             $("#operating-hours").append("<p>No exceptions</p>"); 
         }
     }
-
-
-
-
-
-
-
-
-
+    // Directions display
+    $("#directions").empty();
+    $("#directions").text("Directions:");
+    $("#directions").append("<p>" + data.data[index].directionsInfo + "</p>");
+    $("#directions").append("<a href='" + data.data[index].directionsUrl + "' target='_blank'>For more directions information click here.</a>");
+    // More Park information link
+    $("#more-info").empty();
+    $("#more-info").text("For more Information about " + data.data[index].fullName + " click here");
+    $("#more-info").attr("href", data.data[index].url);
+    $("#more-info").attr("target", "_blank");
 };
 
 
