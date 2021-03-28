@@ -5,138 +5,232 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/bulma.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
     <title>US National Park Finder</title>
 </head>
 
 <body>
-    <header class="header-content title has-text-centered">
-        <h1 class="has-text-danger" id="header-title">US National Park Finder</h1>
+    <header class="hero is-info is-mobile">
+        <div class="hero-body">
+          <p class="title">
+            US National Park Finder
+          </p>
+          <p class="subtitle">
+            Discover the Wild
+          </p>
+        </div>
     </header>
 
-    <section class="search columns section content has-background-link-dark has-text-warning">
+    <section class="columns container is-fluid" id="all-search-container">
+        <div class="column is-auto"></div>
+        <div class="column  is-4" >
+            <div class="columns box is-centered" id="search-holder">
+                <div class="is-1"></div>
+                <div class="column is-5">
+                    <h1 class="panel-heading"><strong>City</strong></h1>
+                    <input class="input is-medium is-info" type="text" placeholder="City">
+                </div>
+                <div class="column is-6">
+                    <h1 class="panel-heading"><strong>State</strong></h1>
+                    <div class="select is-primary">
+                        <select class="select is-primary" name="state" id="state-select" class="select">
+                            <option value="">--</option>
+                            <option value="AL">AL</option>
+                            <option value="AK">AK</option>
+                            <option value="AZ">AZ</option>
+                            <option value="AR">AR</option>
+                            <option value="CA">CA</option>
+                            <option value="CO">CO</option>
+                            <option value="CT">CT</option>
+                            <option value="DE">DE</option>
+                            <option value="FL">FL</option>
+                            <option value="GA">GA</option>
+                            <option value="HI">HI</option>
+                            <option value="ID">ID</option>
+                            <option value="IL">IL</option>
+                            <option value="IN">IN</option>
+                            <option value="IA">IA</option>
+                            <option value="KS">KS</option>
+                            <option value="KY">KY</option>
+                            <option value="LA">LA</option>
+                            <option value="ME">ME</option>
+                            <option value="MD">MD</option>
+                            <option value="MA">MA</option>
+                            <option value="MI">MI</option>
+                            <option value="MN">MN</option>
+                            <option value="MS">MS</option>
+                            <option value="MO">MO</option>
+                            <option value="MT">MT</option>
+                            <option value="NE">NE</option>
+                            <option value="NV">NV</option>
+                            <option value="NH">NH</option>
+                            <option value="NJ">NJ</option>
+                            <option value="NM">NM</option>
+                            <option value="NY">NY</option>
+                            <option value="NC">NC</option>
+                            <option value="ND">ND</option>
+                            <option value="OH">OH</option>
+                            <option value="OK">OK</option>
+                            <option value="OR">OR</option>
+                            <option value="PA">PA</option>
+                            <option value="RI">RI</option>
+                            <option value="SC">SC</option>
+                            <option value="SD">SD</option>
+                            <option value="TN">TN</option>
+                            <option value="TX">TX</option>
+                            <option value="UT">UT</option>
+                            <option value="VT">VT</option>
+                            <option value="VA">VA</option>
+                            <option value="WA">WA</option>
+                            <option value="WV">WV</option>
+                            <option value="WI">WI</option>
+                            <option value="WY">WY</option>
+                        </select>  
+                    </div>  
+                    <button class="button is-medium is-primary" id="search">Search</button>
+                </div>
+            </div>
+            <div class="columns is-centered">
+                
+                <div class="container box column is-6 is-fluid" id="history-container">
+                    <h1 class="title">History</h1>
+                    <br>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="column is-auto"></div>
+            </div>
+
+            <div class="columns is-centered">
                 <div class="column">
-                    <h2 class="has-text-white">Search</h2>
-                    <div class="columns">
-                        <input id="word" type="text" placeholder="enter search key word">
-                    </div>
-                    <div class="column has-text-centered">
-                            <h2 class="has-text-white">Viewed History</h2>
-                            <button id="clear">Clear History</button>
-                            <ul class="has-text-left" id="history-list">
-                            </ul>
-                        </div>
-                </div>
 
-                <div class="column">
-                    <h3 class="has-text-white">State</h3>   
-                    <div class="columns">
-                        <select name="state" id="state-select" class="select">
-
-                        <option value="">--</option>
-                        <option value="AL">AL</option>
-                        <option value="AK">AK</option>
-                        <option value="AZ">AZ</option>
-                        <option value="AR">AR</option>
-                        <option value="CA">CA</option>
-                        <option value="CO">CO</option>
-                        <option value="CT">CT</option>
-                        <option value="DE">DE</option>
-                        <option value="FL">FL</option>
-                        <option value="GA">GA</option>
-                        <option value="HI">HI</option>
-                        <option value="ID">ID</option>
-                        <option value="IL">IL</option>
-                        <option value="IN">IN</option>
-                        <option value="IA">IA</option>
-                        <option value="KS">KS</option>
-                        <option value="KY">KY</option>
-                        <option value="LA">LA</option>
-                        <option value="ME">ME</option>
-                        <option value="MD">MD</option>
-                        <option value="MA">MA</option>
-                        <option value="MI">MI</option>
-                        <option value="MN">MN</option>
-                        <option value="MS">MS</option>
-                        <option value="MO">MO</option>
-                        <option value="MT">MT</option>
-                        <option value="NE">NE</option>
-                        <option value="NV">NV</option>
-                        <option value="NH">NH</option>
-                        <option value="NJ">NJ</option>
-                        <option value="NM">NM</option>
-                        <option value="NY">NY</option>
-                        <option value="NC">NC</option>
-                        <option value="ND">ND</option>
-                        <option value="OH">OH</option>
-                        <option value="OK">OK</option>
-                        <option value="OR">OR</option>
-                        <option value="PA">PA</option>
-                        <option value="RI">RI</option>
-                        <option value="SC">SC</option>
-                        <option value="SD">SD</option>
-                        <option value="TN">TN</option>
-                        <option value="TX">TX</option>
-                        <option value="UT">UT</option>
-                        <option value="VT">VT</option>
-                        <option value="VA">VA</option>
-                        <option value="WA">WA</option>
-                        <option value="WV">WV</option>
-                        <option value="WI">WI</option>
-                        <option value="WY">WY</option>
-                        </select>
-                        <button id="search">Search</button>
-                    </div>
+                    <button class="button is-danger is-medium is-light">Clear History</button>
                 </div>
-
-                <div class="column is-half">
-                    <h3 class="has-text-white">Search Results</h3>
-                    <div class="columns">
-                        <div>
-                            <ul id="search-list">
-                            </ul>
-                            <p id="page-info"></p>
-                            <button id="left">Left</button>
-                            <button id="right">Right</button>
-                        </div>
-                    </div>
+                <div class="column is-auto"> 
                 </div>
+            </div>
+        </div>
+
+        <div class="container is-fluid column is-7" id="search-results-container" >
+            <div class="card" id="results-card">
+                <h1 class="panel-heading"><strong>Search Results</strong></h1>
+                
+                <div class="column is-auto" id="search-results-holder">
+                    <ul>
+
+                    </ul>
+
+                </div>
+                
+            </div>
+
+            <div class="columns is-centered">
+                <div class="column is-auto"></div>
+                <div class="column is-2" id="arrow-buttons">
+                    <button class="button">
+                        <span class="icon">
+                            <i class="fas fa-arrow-left"></i>
+                        </span>
+                        </button>
+                    <button class="button">
+                    <span class="icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                    </button>
+                </div>
+                <div class="column is-auto"></div>
+            </div>
+        </div>
     </section>
 
-    <section class="park-info columns section content has-background-info-dark has-text-warning">
-        <div class="column">
-            <h2 class="has-text-centered has-text-white" id="park-name">Park Name</h2>
+
+    <section class="columns container is-fluid" id="park-info-container">
+        <div class="column is-4" id="img-container">
+            
+            <div class="columns is-centered">
+                <div class="column" id="img-holder">
+                    <img  src="assets/images/pexels-photo-417074.jpeg" alt="Placeholder image">
+                </div>
+            </div>
+           
+
+            <div class="columns is-centered">
+                <div class="column is-auto"></div>
+                <div class="column is-4" id="arrow-buttons">
+                    <button class="button">
+                        <span class="icon">
+                            <i class="fas fa-arrow-left"></i>
+                        </span>
+                        </button>
+                    <button class="button">
+                    <span class="icon">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                    </button>
+                </div>
+                <div class="column is-auto"></div>
+            </div>
+        </div>
+
+        <div class="column is-8">
+            <div class="card">
+                
+                <h1 class="panel-heading">
+                About The Park
+                </h1>
+
+                <div class="card-content">
+                    <div class="park-content">
+                        Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                    </div>
+
+   
+
+    <section class="columns container is-fluid" id="all-weather-container">
+        <div class="column is-4">
+            <div class="card">
+         
+                <h1 class="panel-heading">
+                Current Weather
+                </h1>
+                
+
+                <div class="card-content">
+                    <div class="weather-content">
+                        Lorem ipsum leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras mattis consectetur purus sit amet fermentum.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="column box is-8">
+            <h1 class="panel-heading">
+                5 Day Forecast
+            </h1>
+
             <div class="columns">
-                <div class="column is-one-quarter" id="pictures">
-                    picturesuselessinformationpicture suselessinformationpi cturesuselessinform ationpicturesuselessinformati onpicturesuselessinf ormationpicturesusele ssinformationpicturesuselessinform ationpicturesuselessinformation    
-                </div>
-                <div class="column" id="park-info">
-                        <p id="park-description">descriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless words</p>
-                        <p id="activities">park activitiesdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless wordsdescriptionlots of usless words</p>
-                        <div id="entrance-fees">entrance fees</div>
-                        <div id="operating-hours">hours of operation</div>
-                        <p id="directions">directions</p>
-                        <div><a id="direction-url">link to the direction of the park</a></div>
-                        <div><a id="more-info">link for more information of the park</a></div>
-                    </div>
-            </div>
-        </div>    
-    </section>
+                <div class="column" id="day-1">
 
-    <section class="weather columns section content has-text-centered has-background-primary-dark has-text-warning">
-            <div class="column is-one-quarter" id="current-weather">
-                <h2 class="has-text-centered has-text-white">Current Weather</h2>
-            </div>
-            <div class="column" id="forecast">
-                    <h2 class="has-text-white">5 Day Forecast</h2>
-                <div class="columns">
-                    <div class="column" id="day-1">day 1</div>
-                    <div class="column" id="day-2">day 2</div>
-                    <div class="column" id="day-3">day 3</div>
-                    <div class="column" id="day-4">day 4</div>
-                    <div class="column" id="day-5">day 5</div>
+                </div>
+                <div class="column" id="day-2">
+
+                </div>
+                <div class="column" id="day-3">
+
+                </div>
+                <div class="column" id="day-4">
+
+                </div>
+                <div class="column" id="day-5">
+
                 </div>
             </div>
+        </div>
+        
     </section>
 
     <footer>
@@ -145,5 +239,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </body>
 </html>
