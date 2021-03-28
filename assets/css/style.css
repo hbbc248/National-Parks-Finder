@@ -57,3 +57,13 @@
  #all-weather-container {
      margin-top: 50px;
  }
+
+#search-holder {
+    padding: 0;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+.panel-heading {
+    width: 100%;
+}
