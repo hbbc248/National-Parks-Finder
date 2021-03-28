@@ -61,10 +61,10 @@ var getWeather = function(lat, lon) {
     fetch(apiUrl).then(function(response){
         // request was succesful
         if(response.ok) {
-            response.json().then(function(data) {
-                console.log(data);
+            response.json().then(function(weatherData) {
+                console.log(weatherData);
                 // call current weather display function
-
+                displayWeather(weatherData);
             });
         } else {
             alert("Error: " + response.status);
@@ -213,12 +213,10 @@ var displayParkInfo = function(index, data) {
     // call pictures display
     picDisplay();
     // get park lat and long for weather
-
-
+    var lat = data.data[index].latitude;
+    var lon = data.data[index].longitude;
     // call weather fetch with lat and long
-
-
-
+    getWeather(lat, lon);
     // display park description
     $("#park-description").empty();
     $("#park-description").text("Description:");
@@ -316,5 +314,51 @@ var newPictureDisplay = function() {
     var picLast = picPageMax + 1;
     $("#pic-page").text("Picture " + picNum + " out of " + picLast);
 };
+
+var displayWeather = function(weatherData) {
+    $("#weather-description").text(weatherData.current.weather[0].main);
+    $("#current-icon").attr("src", "http://openweathermap.org/img/wn/" + weatherData.current.weather[0].icon + "@2x.png");
+    $("#temperature").text("Temperature: " + weatherData.current.temp + " \xB0F");
+    $("#feels-like").text("Feels-like: " + weatherData.current.feels_like + " \xB0F");
+    $("#humidity").text("Humidity: " + weatherData.current.humidity + " %");
+    $("#wind-speed").text("Wind Speed: " + weatherData.current.wind_speed + " MPH");
+    // UV index print
+    var uvIndex = weatherData.current.uvi;
+    $("#UV-index").empty();
+    $("#UV-index").text("UV Index: ");
+    $("#UV-index").append("<span id='index' class='badge p-1 fs-6'></span>");
+    $("#index").text(uvIndex);
+    if (uvIndex <= 2) {
+        $("#index").addClass("tag is-success");
+    }
+    if ((uvIndex > 2) && (uvIndex <=5)) {
+        $("#index").addClass("tag is-warning");
+    }
+    if (uvIndex > 5) {
+        $("#index").addClass("tag is-danger");
+    }
+    
+    // display forecast data
+    var forecastEl = $(".forecast");
+    for (i = 0; i < forecastEl.length; i++) {
+        // clean any previous data
+        $(forecastEl[i]).empty();
+        var forecastIndex = i + 1
+        // get date for the forecast day
+        var forecastDate = new Date(weatherData.daily[forecastIndex].dt * 1000);
+        var forecastDay = forecastDate.getDate();
+        var forecastMonth = forecastDate.getMonth() + 1;
+        var forecastYear = forecastDate.getFullYear();
+        // add date, image, temperature and humidity to html element
+        $(forecastEl[i]).append("<p class=''>" + forecastMonth + "/" + forecastDay + "/" + forecastYear + "</p>");
+        $(forecastEl[i]).append("<p>" + weatherData.daily[forecastIndex].weather[0].main + "</p>");
+        $(forecastEl[i]).append("<img src='https://openweathermap.org/img/wn/" + weatherData.daily[forecastIndex].weather[0].icon + "@2x.png'></img>");
+        $(forecastEl[i]).append("<p> Temp min: " + weatherData.daily[forecastIndex].temp.min + " &#176F</p>");
+        $(forecastEl[i]).append("<p> Temp max: " + weatherData.daily[forecastIndex].temp.max + " &#176F</p>");
+        $(forecastEl[i]).append("<p>Humidity: " + weatherData.daily[forecastIndex].humidity + " %</p>");
+        
+    }
+
+}
 
 loadHistory();
