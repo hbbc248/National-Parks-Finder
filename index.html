@@ -24,17 +24,31 @@
         </div>
     </header>
 
+    
+    <div class="popup-overlay">
+        <div class="popup-content">
+            <h2>Pop-Up</h2>
+            <p> This is an example pop-up that you can make using jQuery.</p>
+            <button class="close">Close</button>    
+        </div>
+    </div>
+
+
+
     <section class="columns container is-fluid" id="all-search-container">
         <div class="column is-auto"></div>
         <div class="column  is-4" >
             <div class="columns box is-centered" id="search-holder">
                 <div class="is-1"></div>
+
                 <div class="column is-5">
                     <h1 class="panel-heading"><strong>City</strong></h1>
                     <input class="input is-medium is-info" type="text" placeholder="City">
                 </div>
+
                 <div class="column is-6">
                     <h1 class="panel-heading"><strong>State</strong></h1>
+
                     <div class="select is-primary">
                         <select class="select is-primary" name="state" id="state-select" class="select">
                             <option value="">--</option>
@@ -89,17 +103,19 @@
                             <option value="WI">WI</option>
                             <option value="WY">WY</option>
                         </select>  
-                    </div>  
+                    </div> 
+
                     <button class="button is-medium is-primary" id="search">Search</button>
+
                 </div>
             </div>
+
             <div class="columns is-centered">
-                
                 <div class="container box column is-6 is-fluid" id="history-container">
                     <h1 class="title">History</h1>
                     <br>
-                    <ul>
-                        <li></li>
+                    <ul id="history-list">
+                       
                     </ul>
                 </div>
                 <div class="column is-auto"></div>
@@ -108,7 +124,7 @@
             <div class="columns is-centered">
                 <div class="column">
 
-                    <button class="button is-danger is-medium is-light">Clear History</button>
+                    <button class="button is-danger is-medium is-light" id="Clear">Clear History</button>
                 </div>
                 <div class="column is-auto"> 
                 </div>
@@ -120,7 +136,7 @@
                 <h1 class="panel-heading"><strong>Search Results</strong></h1>
                 
                 <div class="column is-auto" id="search-results-holder">
-                    <ul>
+                    <ul id="search-list">
 
                     </ul>
 
@@ -131,12 +147,12 @@
             <div class="columns is-centered">
                 <div class="column is-auto"></div>
                 <div class="column is-2" id="arrow-buttons">
-                    <button class="button">
+                    <button class="button" id='left'>
                         <span class="icon">
                             <i class="fas fa-arrow-left"></i>
                         </span>
                         </button>
-                    <button class="button">
+                    <button class="button" id="right">
                     <span class="icon">
                         <i class="fas fa-arrow-right"></i>
                     </span>
@@ -165,11 +181,12 @@
                         <span class="icon">
                             <i class="fas fa-arrow-left"></i>
                         </span>
-                        </button>
+                    </button>
+
                     <button class="button">
-                    <span class="icon">
-                        <i class="fas fa-arrow-right"></i>
-                    </span>
+                        <span class="icon">
+                            <i class="fas fa-arrow-right"></i>
+                        </span>
                     </button>
                 </div>
                 <div class="column is-auto"></div>
@@ -191,8 +208,6 @@
             </div>
         </div>
     </section>
-
-   
 
     <section class="columns container is-fluid" id="all-weather-container">
         <div class="column is-4">

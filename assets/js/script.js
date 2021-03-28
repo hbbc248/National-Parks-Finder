@@ -1,4 +1,3 @@
-
 var parksAPIKey = "cLPFutN3JOEcVqfEXTU1EekbZDczkTNkqEsKFCDX";
 var weatherAPIKey = "8192203cac5ae6d369c41fb47e14d962";
 var parksData = {};
@@ -14,13 +13,13 @@ var historyList = {
 
 
 // funtion to get parks from (word, state);
-var getPark = function(word, state) {
-    var apiUrl = "https://developer.nps.gov/api/v1/parks?q=" + word + "&stateCode=" + state + "&api_key=" + parksAPIKey;
-    if (!word) {
+var getPark = function(city, state) {
+    var apiUrl = "https://developer.nps.gov/api/v1/parks?q=" + city + "&stateCode=" + state + "&api_key=" + parksAPIKey;
+    if (!city) {
         var apiUrl = "https://developer.nps.gov/api/v1/parks?stateCode=" + state + "&api_key=" + parksAPIKey;
     }
     if (!state)
-    var apiUrl = "https://developer.nps.gov/api/v1/parks?q=" + word + "&api_key=" + parksAPIKey;
+    var apiUrl = "https://developer.nps.gov/api/v1/parks?q=" + city + "&api_key=" + parksAPIKey;
     fetch(apiUrl).then(function(response){
         // request was succesful
         if(response.ok) {
@@ -194,8 +193,14 @@ $("#search").on("click", function() {
         currentPage = 1;
         getPark(searchWord, state);
     } else {
-        alert("You must enter a search word and/or select state to search");
+        
+        $(".popup-overlay, .popup-content").addClass("active");
+        
     }
+});
+
+$(".close, .popup-overlay").on("click", function() {
+    $(".popup-overlay, .popup-content").removeClass("active");
 });
 
 // Display park data function
