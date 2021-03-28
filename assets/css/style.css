@@ -53,11 +53,6 @@
    min-width: 325px;
 }
 
-#img-holder img {
-    height: 100%;
-    width: 100%;
- }
-
  #all-weather-container {
      margin-top: 50px;
  }
