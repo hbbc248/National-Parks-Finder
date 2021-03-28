@@ -146,7 +146,7 @@
 
                 <div class="columns is-centered">
                     <div class="column is-auto"></div>
-                    <div class="column is-2" id="arrow-buttons">
+                    <div class="column is-1" id="arrow-buttons">
                         <button class="button" id='left'>
                             <span class="icon">
                                 <i class="fas fa-arrow-left"></i>
@@ -169,15 +169,11 @@
         <div class="column is-4" id="img-container">
             
             <div class="columns is-centered">
-                <div class="column" id="img-holder">
-                    <img  src="assets/images/pexels-photo-417074.jpeg" alt="Placeholder image">
+                <div class="column level" id="img-holder">
+                    <img  id="image" src="assets/images/pexels-photo-417074.jpeg" alt="Placeholder image">
                 </div>
             </div>
-           
-
-            <div class="columns is-centered">
-                <div class="column is-auto"></div>
-                <div class="column is-4" id="pic-btns">
+            <div class="buttons is-centered">
                     <button id="previous" class='button'>
                         <span class='icon'>
                             <i class='fas fa-arrow-left'></i>
@@ -188,9 +184,6 @@
                             <i class='fas fa-arrow-right'></i>
                         </span>
                     </button>
-                    
-                </div>
-                <div class="column is-auto"></div>
             </div>
         </div>
 
@@ -206,13 +199,14 @@
                         <h2 id="park-name" class="title is-3"></h2>
                         <p id="park-description-title" class="title is-5"></p>
                         <p id="park-description"></p>
-                        <p id="activities" class="title is-5"></p>
+                        <p id="activities-title" class="title is-5"></p>
+                        <p id="activities"></p>
                         <p id="entrance-fees" class="title is-5"></p>
                         <div id="entrance-fees-items"></div>
                         <p id="operating-hours" class="title is-5"></p>
                         <div id="operating-hours-items"></div>
-                        <p id="directions"></p>
-                        <a id="more-info"></a></div>
+                        <div id="directions"></div>
+                        <a id="more-info" class="subtitle is-5"></a></div>
                     </div>
                 </div>
             </div>
@@ -227,15 +221,15 @@
 
                 <div class="card-content">
                     <div class="weather-content">
-                        <div class="d-flex">
-                            <p id="weather-description" class=""></p>
+                        <strong><p class="level-item" id="weather-description" class=""></p></strong>
+                        <div class="level-item">
                             <img id="current-icon" src="" alt=""></img>
                         </div>
-                        <p id="temperature"></p>
-                        <p id="feels-like"></p>
-                        <p id="humidity"></p>
-                        <p id="wind-speed"></p>
-                        <p id="UV-index"></p>   
+                        <p class="level-item" id="temperature"></p>
+                        <p class="level-item" id="feels-like"></p>
+                        <p class="level-item" id="humidity"></p>
+                        <p class="level-item" id="wind-speed"></p>
+                        <p class="level-item" id="UV-index"></p>   
                     </div>
                 </div>
             </div>

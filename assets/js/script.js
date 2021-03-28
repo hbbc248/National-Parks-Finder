@@ -236,9 +236,12 @@ var displayParkInfo = function(index, data) {
             activities += " and " + data.data[index].activities[i].name + ".";
         } 
     }
+    $("#activities-title").empty();
+    $("#activities-title").text("Activities: ");
     $("#activities").empty();
-    $("#activities").text("Activities: ")
-    $("<p>" + activities + "</p></br>").insertAfter("#activities");
+    $("#activities").text(activities);
+    $("#activities").append("</br></br>");
+    
     // entrance fees display
     $("#entrance-fees").empty();
     $("#entrance-fees").text("Entrance Fees:");
@@ -270,9 +273,11 @@ var displayParkInfo = function(index, data) {
     $("#operating-hours-items").append("</br>");
     // Directions display
     $("#directions").empty();
-    $("#directions").text("Directions:");
+    $("#directions").append("<p class='title is-5'>Directions:</p>");
     $("#directions").append("<p>" + data.data[index].directionsInfo + "</p>");
-    $("#directions").append("<a href='" + data.data[index].directionsUrl + "' target='_blank'>For more directions information click here.</a>");
+    $("#directions").append("</br>");
+    $("#directions").append("<a class='subtitle is-5' href='" + data.data[index].directionsUrl + "' target='_blank'>For more directions information click here.</a>");
+    $("#directions").append("</br></br>");
     // More Park information link
     $("#more-info").empty();
     $("#more-info").text("For more Information about " + data.data[index].fullName + " click here");
@@ -286,12 +291,12 @@ var picDisplay = function() {
     picPageMax = singleParkData.images.length - 1;
     // clean everything on pictures <div>
     $("#img-holder").empty();
-    $("#img-holder").append("<p id='imgTitle'>" + singleParkData.images[picPage].title + "</p>");
+    $("#img-holder").append("<p class='level-item title is-5' id='imgTitle'>" + singleParkData.images[picPage].title + "</p>");
     $("#img-holder").append("<img id='image' src='" + singleParkData.images[picPage].url + "' alt='" + singleParkData.images[picPage].altText + "'></img>");
-    $("#img-holder").append("<p id='imgCaption'>" + singleParkData.images[picPage].caption + " - By: " + singleParkData.images[picPage].credit + ".</p>");
+    $("#img-holder").append("<p id='imgCaption'>" + singleParkData.images[picPage].caption + " - By: " + singleParkData.images[picPage].credit + ".</p></br>");
     var picNum = picPage + 1;
     var picLast = picPageMax + 1;
-    $("#img-holder").append("<p id='pic-page'>Picture " + picNum + " out of " + picLast + "</p>");  
+    $("#img-holder").append("<em><p class='level-item' id='pic-page'>Picture " + picNum + " out of " + picLast + "</p></em>");  
     
 };
 
@@ -359,11 +364,11 @@ var displayWeather = function(weatherData) {
         var forecastMonth = forecastDate.getMonth() + 1;
         var forecastYear = forecastDate.getFullYear();
         // add date, image, temperature and humidity to html element
-        $(forecastEl[i]).append("<p class='level-item'>" + forecastMonth + "/" + forecastDay + "/" + forecastYear + "</p>");
-        $(forecastEl[i]).append("<p class='level-item'>" + weatherData.daily[forecastIndex].weather[0].main + "</p>");
+        $(forecastEl[i]).append("</br><p class='level-item subtitle is-5'>" + forecastMonth + "/" + forecastDay + "/" + forecastYear + "</p>");
+        $(forecastEl[i]).append("<p class='level-item'><strong>" + weatherData.daily[forecastIndex].weather[0].main + "</strong></p>");
         $(forecastEl[i]).append("<div class='level-item'><img src='https://openweathermap.org/img/wn/" + weatherData.daily[forecastIndex].weather[0].icon + "@2x.png'></img></div>");
-        $(forecastEl[i]).append("<p class='level-item'> Temp min: " + weatherData.daily[forecastIndex].temp.min + " &#176F</p>");
-        $(forecastEl[i]).append("<p class='level-item'> Temp max: " + weatherData.daily[forecastIndex].temp.max + " &#176F</p>");
+        $(forecastEl[i]).append("<p class='level-item'>Temp min: " + weatherData.daily[forecastIndex].temp.min + " &#176F</p>");
+        $(forecastEl[i]).append("<p class='level-item'>Temp max: " + weatherData.daily[forecastIndex].temp.max + " &#176F</p>");
         $(forecastEl[i]).append("<p class='level-item'>Humidity: " + weatherData.daily[forecastIndex].humidity + " %</p>");
         
     }
