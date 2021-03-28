@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
     <link rel="stylesheet" href="assets/css/bulma.css">
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
@@ -204,7 +203,7 @@
 
                 <div class="card-content">
                     <div id="park-info" class="park-content">
-                        <h2 id="park-name"></h2>
+                        <h2 id="park-name" class="title is-3"></h2>
                         <p id="park-description"></p>
                         <p id="activities"></p>
                         <div id="entrance-fees"></div>
@@ -220,10 +219,7 @@
     <section class="columns container is-fluid" id="all-weather-container">
         <div class="column is-4">
             <div class="card">
-         
-                <h1 class="panel-heading">
-                Current Weather
-                </h1>
+                <h1 class="panel-heading">Current Weather</h1>
                 
 
                 <div class="card-content">
@@ -242,26 +238,16 @@
             </div>
         </div>
 
-        <div class="column box is-8">
-            <h1 class="panel-heading">
-                5 Day Forecast
-            </h1>
+        <div class="column is-8">
+            <div class="card">
+                <h1 class="panel-heading">5 Day Forecast</h1>
 
-            <div class="columns">
-                <div class="column forecast">
-
-                </div>
-                <div class="column forecast">
-
-                </div>
-                <div class="column forecast">
-
-                </div>
-                <div class="column forecast">
-
-                </div>
-                <div class="column forecast">
-
+                <div class="columns">
+                    <div class="column forecast level"></div>
+                    <div class="column forecast level"></div>
+                    <div class="column forecast level"></div>
+                    <div class="column forecast level"></div>
+                    <div class="column forecast level"></div>
                 </div>
             </div>
         </div>

@@ -350,12 +350,12 @@ var displayWeather = function(weatherData) {
         var forecastMonth = forecastDate.getMonth() + 1;
         var forecastYear = forecastDate.getFullYear();
         // add date, image, temperature and humidity to html element
-        $(forecastEl[i]).append("<p class=''>" + forecastMonth + "/" + forecastDay + "/" + forecastYear + "</p>");
-        $(forecastEl[i]).append("<p>" + weatherData.daily[forecastIndex].weather[0].main + "</p>");
-        $(forecastEl[i]).append("<img src='https://openweathermap.org/img/wn/" + weatherData.daily[forecastIndex].weather[0].icon + "@2x.png'></img>");
-        $(forecastEl[i]).append("<p> Temp min: " + weatherData.daily[forecastIndex].temp.min + " &#176F</p>");
-        $(forecastEl[i]).append("<p> Temp max: " + weatherData.daily[forecastIndex].temp.max + " &#176F</p>");
-        $(forecastEl[i]).append("<p>Humidity: " + weatherData.daily[forecastIndex].humidity + " %</p>");
+        $(forecastEl[i]).append("<p class='level-item'>" + forecastMonth + "/" + forecastDay + "/" + forecastYear + "</p>");
+        $(forecastEl[i]).append("<p class='level-item'>" + weatherData.daily[forecastIndex].weather[0].main + "</p>");
+        $(forecastEl[i]).append("<img class='center' src='https://openweathermap.org/img/wn/" + weatherData.daily[forecastIndex].weather[0].icon + "@2x.png'></img>");
+        $(forecastEl[i]).append("<p class='level-item'> Temp min: " + weatherData.daily[forecastIndex].temp.min + " &#176F</p>");
+        $(forecastEl[i]).append("<p class='level-item'> Temp max: " + weatherData.daily[forecastIndex].temp.max + " &#176F</p>");
+        $(forecastEl[i]).append("<p class='level-item'>Humidity: " + weatherData.daily[forecastIndex].humidity + " %</p>");
         
     }
 
