@@ -3,7 +3,6 @@
 }
 
 
-
 .container {
     height: 300px;
     max-height: fit-content;
@@ -11,10 +10,6 @@
     min-height: 300px;
 }
 
-
-header {
-    margin-bottom: 15px;
-}
 
 #all-search-container {
     background-image: url("../images/hiking.jpg");
@@ -41,5 +36,24 @@ header {
 
 #arrow-buttons {
     min-width: 150px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
+
+#img-container {
+    min-height: fit-content
+}
+
+#img-holder {
+   max-height: 400px;
+   max-width: 550px;
+   min-width: 325px;
+}
+
+#img-holder img {
+    height: 100%;
+    width: 100%;
+ }
+
+ #all-weather-container {
+     margin-top: 50px;
+ }
