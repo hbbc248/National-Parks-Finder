@@ -1,4 +1,69 @@
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"
+* {
+    z-index: 0;
+}
 
 
+.container {
+    height: 300px;
+    max-height: fit-content;
+    margin: 20px 10px;
+    min-height: 300px;
+}
 
+
+#all-search-container {
+    background-image: url("../images/hiking.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+    padding: 0;
+    margin: 0;
+    border-top: grey 3px solid;
+}
+
+#park-info-container {
+    height: 400px;
+}
+
+#search-results-container {
+    height: 80%;
+}
+
+#results-card {
+    height: 80%;
+}
+
+#arrow-buttons {
+    min-width: 150px;
+    margin-top: 5px;
+}
+
+#img-container {
+    min-height: fit-content
+}
+
+#img-holder {
+   max-height: 400px;
+   max-width: 550px;
+   min-width: 325px;
+}
+
+#img-holder img {
+    height: 100%;
+    width: 100%;
+ }
+
+ #all-weather-container {
+     margin-top: 50px;
+ }
+
+#search-holder {
+    padding: 0;
+    padding-bottom: 5px;
+    margin-top: 20px;
+}
+
+.panel-heading {
+    width: 100%;
+}

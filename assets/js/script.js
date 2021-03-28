@@ -2,8 +2,11 @@
 var parksAPIKey = "cLPFutN3JOEcVqfEXTU1EekbZDczkTNkqEsKFCDX";
 var weatherAPIKey = "8192203cac5ae6d369c41fb47e14d962";
 var parksData = {};
+var singleParkData = {};
 var totalPages = 0;
 var currentPage = 1;
+var picPage = 0;
+var picPageMax = 0;
 var historyList = {
     text: [],
     id: []
@@ -167,7 +170,7 @@ $("#clear").on("click", function() {
     saveHistoryList();
 });
 
-// city on history was clicked
+// Park on history was clicked
 $("#history-list").click (function(e) {
     var parkName = e.target.innerText;
     var parkCode = e.target.id;
@@ -181,11 +184,14 @@ $("#history-list").click (function(e) {
     getParkByCode(parkCode);
 });
 
-// click on search button. Get city name and pass to getWeather
+// click on search button. 
 $("#search").on("click", function() {
+    // get values from word and state and pass to function
     var searchWord = $("#word").val();
     var state = $("#state-select").val();
     if ((searchWord) || (state)) {
+        // reset current page
+        currentPage = 1;
         getPark(searchWord, state);
     } else {
         alert("You must enter a search word and/or select state to search");
@@ -196,11 +202,22 @@ $("#search").on("click", function() {
 var displayParkInfo = function(index, data) {
     // display park name
     $("#park-name").text(data.data[index].fullName);
-    // call pictures pagination filter
-   
+    // puts single park data into global variable to be use by other  functions
+    singleParkData = data.data[index];
+    console.log(singleParkData);
+    // call pictures display
+    picDisplay();
+    // get park lat and long for weather
+
+
+    // call weather fetch with lat and long
+
+
 
     // display park description
-    $("#park-description").text("Description: " + data.data[index].description);
+    $("#park-description").empty();
+    $("#park-description").text("Description:");
+    $("#park-description").append("<p>" + data.data[index].description + "</p>");
     // display park activities
     var activities = "";
     for (i = 0; i < data.data[index].activities.length; i++) {
@@ -217,13 +234,13 @@ var displayParkInfo = function(index, data) {
     $("#activities").text("Activities: " + activities);
     // entrance fees display
     $("#entrance-fees").empty();
-    $("#entrance-fees").append("<p>Entrance Fees:</p>");
+    $("#entrance-fees").text("Entrance Fees:");
     for (i = 0; i < data.data[index].entranceFees.length; i++) {
         $("#entrance-fees").append("<p>Cost: $" + data.data[index].entranceFees[i].cost + ", " + data.data[index].entranceFees[i].description + "</p>");
     }
     // hours of operation display
     $("#operating-hours").empty();
-    $("#operating-hours").append("<p>Operating hours:</p>");
+    $("#operating-hours").text("Operating hours:");
     var hours = data.data[index].operatingHours;
     for (i = 0; i < hours.length; i++) {
         $("#operating-hours").append("<p>" + (i+1) + ") " + hours[i].name + ". " + hours[i].description + "</p>");
@@ -239,15 +256,72 @@ var displayParkInfo = function(index, data) {
             $("#operating-hours").append("<p>No exceptions</p>"); 
         }
     }
+    // Directions display
+    $("#directions").empty();
+    $("#directions").text("Directions:");
+    $("#directions").append("<p>" + data.data[index].directionsInfo + "</p>");
+    $("#directions").append("<a href='" + data.data[index].directionsUrl + "' target='_blank'>For more directions information click here.</a>");
+    // More Park information link
+    $("#more-info").empty();
+    $("#more-info").text("For more Information about " + data.data[index].fullName + " click here");
+    $("#more-info").attr("href", data.data[index].url);
+    $("#more-info").attr("target", "_blank");
+};
+
+// park picturas pagination filter
+var picDisplay = function() {
+    picPage = 0;
+    picPageMax = singleParkData.images.length - 1;
+    // clean everything on pictures <div>
+    $("#pictures").empty();
+    $("#pictures").append("<p id='imgTitle'>" + singleParkData.images[picPage].title + "</p>");
+    $("#pictures").append("<img id='image' src='" + singleParkData.images[picPage].url + "' alt='" + singleParkData.images[picPage].altText + "'></img>");
+    $("#pictures").append("<p id='imgCaption'>" + singleParkData.images[picPage].caption + " - By: " + singleParkData.images[picPage].credit + ".</p>");
+    var picNum = picPage + 1;
+    var picLast = picPageMax + 1;
+    $("#pictures").append("<p id='pic-page'>Picture " + picNum + " out of " + picLast + "</p>");
+    $("#pictures").append("<button id='previous'>Previous</button>");
+    $("#pictures").append("<button id='next'>Next</button>");
+};
+
+// Next or previous picture button was clicked
+$("#pictures").click (function(e) {
+    var buttonId = e.target.id;
+    if (buttonId === "next") {
+        if (picPage < picPageMax) {
+            picPage++;
+            // call new picture display
+            newPictureDisplay();
+        }
+        return;
+    }
+    if (buttonId === "previous") {
+        if (picPage > 0) {
+            picPage--;
+            // call new picture display
+            newPictureDisplay;
+        }
+    }
+});
+
+// new picture display
+var newPictureDisplay = function() {
+    $("#imgTitle").text(singleParkData.images[picPage].title);
+    $("#image").attr("src", singleParkData.images[picPage].url);
+    $("#image").attr("alt", singleParkData.images[picPage].altText);
+    $("#imgCaption").text(singleParkData.images[picPage].caption + " - By: " + singleParkData.images[picPage].credit);
+    var picNum = picPage + 1;
+    var picLast = picPageMax + 1;
+    $("#pic-page").text("Picture " + picNum + " out of " + picLast);
 };
 
 
+
+
+
+
+
+
+
+
 loadHistory();
-
-
-
-
-
-
-
-
