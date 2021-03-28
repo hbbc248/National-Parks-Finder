@@ -36,130 +36,131 @@
 
 
 
-    <section class="columns container is-fluid" id="all-search-container">
-        <div class="column is-auto"></div>
-        <div class="column  is-4" >
-            <div class="columns box is-centered" id="search-holder">
-                <div class="is-1"></div>
+    <section class="container is-fluid" id="all-search-container">
+        <div class="columns">
+        
+            <div class="container is-fluid column  is-4" >
+                <div class="columns box is-centered" id="search-holder">
+                    
 
-                <div class="column is-5">
-                    <h1 class="panel-heading"><strong>Search word</strong></h1>
-                    <input id="word" class="input is-medium is-info" type="text" placeholder="Search word">
+                    <div class="column is-5">
+                        <h1 class="panel-heading"><strong>Key word</strong></h1>
+                        <input id="word" class="input is-medium is-info" type="text" placeholder="Search word">
+                    </div>
+
+                    <div class="column is-3">
+                        <h1 class="panel-heading"><strong>State</strong></h1>
+
+                        <div class="select is-primary is-medium">
+                            <select class="select is-primary" name="state" id="state-select" class="select">
+                                <option value="">--</option>
+                                <option value="AL">AL</option>
+                                <option value="AK">AK</option>
+                                <option value="AZ">AZ</option>
+                                <option value="AR">AR</option>
+                                <option value="CA">CA</option>
+                                <option value="CO">CO</option>
+                                <option value="CT">CT</option>
+                                <option value="DE">DE</option>
+                                <option value="FL">FL</option>
+                                <option value="GA">GA</option>
+                                <option value="HI">HI</option>
+                                <option value="ID">ID</option>
+                                <option value="IL">IL</option>
+                                <option value="IN">IN</option>
+                                <option value="IA">IA</option>
+                                <option value="KS">KS</option>
+                                <option value="KY">KY</option>
+                                <option value="LA">LA</option>
+                                <option value="ME">ME</option>
+                                <option value="MD">MD</option>
+                                <option value="MA">MA</option>
+                                <option value="MI">MI</option>
+                                <option value="MN">MN</option>
+                                <option value="MS">MS</option>
+                                <option value="MO">MO</option>
+                                <option value="MT">MT</option>
+                                <option value="NE">NE</option>
+                                <option value="NV">NV</option>
+                                <option value="NH">NH</option>
+                                <option value="NJ">NJ</option>
+                                <option value="NM">NM</option>
+                                <option value="NY">NY</option>
+                                <option value="NC">NC</option>
+                                <option value="ND">ND</option>
+                                <option value="OH">OH</option>
+                                <option value="OK">OK</option>
+                                <option value="OR">OR</option>
+                                <option value="PA">PA</option>
+                                <option value="RI">RI</option>
+                                <option value="SC">SC</option>
+                                <option value="SD">SD</option>
+                                <option value="TN">TN</option>
+                                <option value="TX">TX</option>
+                                <option value="UT">UT</option>
+                                <option value="VT">VT</option>
+                                <option value="VA">VA</option>
+                                <option value="WA">WA</option>
+                                <option value="WV">WV</option>
+                                <option value="WI">WI</option>
+                                <option value="WY">WY</option>
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="column is-3">
+                        <button class="button is-medium is-primary" id="search">Search</button>
+                    </div>
                 </div>
 
-                <div class="column is-6">
-                    <h1 class="panel-heading"><strong>State</strong></h1>
+                <div class="columns is-centered">
+                    <div class="container box column is-fluid" id="history-container">
+                        <h1 class="title">History</h1>
+                        <ul id="history-list">
+                        
+                        </ul>
+                    </div>
+                    
+                </div>
 
-                    <div class="select is-primary">
-                        <select class="select is-primary" name="state" id="state-select" class="select">
-                            <option value="">--</option>
-                            <option value="AL">AL</option>
-                            <option value="AK">AK</option>
-                            <option value="AZ">AZ</option>
-                            <option value="AR">AR</option>
-                            <option value="CA">CA</option>
-                            <option value="CO">CO</option>
-                            <option value="CT">CT</option>
-                            <option value="DE">DE</option>
-                            <option value="FL">FL</option>
-                            <option value="GA">GA</option>
-                            <option value="HI">HI</option>
-                            <option value="ID">ID</option>
-                            <option value="IL">IL</option>
-                            <option value="IN">IN</option>
-                            <option value="IA">IA</option>
-                            <option value="KS">KS</option>
-                            <option value="KY">KY</option>
-                            <option value="LA">LA</option>
-                            <option value="ME">ME</option>
-                            <option value="MD">MD</option>
-                            <option value="MA">MA</option>
-                            <option value="MI">MI</option>
-                            <option value="MN">MN</option>
-                            <option value="MS">MS</option>
-                            <option value="MO">MO</option>
-                            <option value="MT">MT</option>
-                            <option value="NE">NE</option>
-                            <option value="NV">NV</option>
-                            <option value="NH">NH</option>
-                            <option value="NJ">NJ</option>
-                            <option value="NM">NM</option>
-                            <option value="NY">NY</option>
-                            <option value="NC">NC</option>
-                            <option value="ND">ND</option>
-                            <option value="OH">OH</option>
-                            <option value="OK">OK</option>
-                            <option value="OR">OR</option>
-                            <option value="PA">PA</option>
-                            <option value="RI">RI</option>
-                            <option value="SC">SC</option>
-                            <option value="SD">SD</option>
-                            <option value="TN">TN</option>
-                            <option value="TX">TX</option>
-                            <option value="UT">UT</option>
-                            <option value="VT">VT</option>
-                            <option value="VA">VA</option>
-                            <option value="WA">WA</option>
-                            <option value="WV">WV</option>
-                            <option value="WI">WI</option>
-                            <option value="WY">WY</option>
-                        </select>  
-                    </div> 
+                <div class="columns is-centered">
+                    <div class="column">
 
-                    <button class="button is-medium is-primary" id="search">Search</button>
-
+                        <button class="button is-danger is-medium is-light" id="clear">Clear History</button>
+                    </div>
+                    
                 </div>
             </div>
+            
 
-            <div class="columns is-centered">
-                <div class="container box column is-fluid" id="history-container">
-                    <h1 class="title">History</h1>
-                    <br>
-                    <ul id="history-list">
-                       
-                    </ul>
+            <div class="container is-fluid column is-7" id="search-results-container" >
+                <div class="card" id="results-card">
+                    <h1 class="panel-heading"><strong>Search Results</strong></h1>
+                    
+                    <div class="column is-auto" id="search-results-holder">
+                        <ul id="search-list">
+
+                        </ul>
+                        <p id="page-info"></p>
+                    </div>
+                    
                 </div>
-                
-            </div>
 
-            <div class="columns is-centered">
-                <div class="column">
-
-                    <button class="button is-danger is-medium is-light" id="clear">Clear History</button>
-                </div>
-                <div class="column is-auto"> 
-                </div>
-            </div>
-        </div>
-
-        <div class="container is-fluid column is-7" id="search-results-container" >
-            <div class="card" id="results-card">
-                <h1 class="panel-heading"><strong>Search Results</strong></h1>
-                
-                <div class="column is-auto" id="search-results-holder">
-                    <ul id="search-list">
-
-                    </ul>
-                    <p id="page-info"></p>
-                </div>
-                
-            </div>
-
-            <div class="columns is-centered">
-                <div class="column is-auto"></div>
-                <div class="column is-2" id="arrow-buttons">
-                    <button class="button" id='left'>
+                <div class="columns is-centered">
+                    <div class="column is-auto"></div>
+                    <div class="column is-2" id="arrow-buttons">
+                        <button class="button" id='left'>
+                            <span class="icon">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                            </button>
+                        <button class="button" id="right">
                         <span class="icon">
-                            <i class="fas fa-arrow-left"></i>
+                            <i class="fas fa-arrow-right"></i>
                         </span>
                         </button>
-                    <button class="button" id="right">
-                    <span class="icon">
-                        <i class="fas fa-arrow-right"></i>
-                    </span>
-                    </button>
+                    </div>
+                    <div class="column is-auto"></div>
                 </div>
-                <div class="column is-auto"></div>
             </div>
         </div>
     </section>
