@@ -218,9 +218,11 @@ var displayParkInfo = function(index, data) {
     // call weather fetch with lat and long
     getWeather(lat, lon);
     // display park description
+    $("#park-description-title").empty();
+    $("#park-description-title").text("Description:");
     $("#park-description").empty();
-    $("#park-description").text("Description:");
-    $("#park-description").append("<p>" + data.data[index].description + "</p>");
+    $("#park-description").text(data.data[index].description);
+    $("#park-description").append("</br></br>");
     // display park activities
     var activities = "";
     for (i = 0; i < data.data[index].activities.length; i++) {
@@ -234,31 +236,38 @@ var displayParkInfo = function(index, data) {
             activities += " and " + data.data[index].activities[i].name + ".";
         } 
     }
-    $("#activities").text("Activities: " + activities);
+    $("#activities").empty();
+    $("#activities").text("Activities: ")
+    $("<p>" + activities + "</p></br>").insertAfter("#activities");
     // entrance fees display
     $("#entrance-fees").empty();
     $("#entrance-fees").text("Entrance Fees:");
+    $("#entrance-fees-items").empty();
     for (i = 0; i < data.data[index].entranceFees.length; i++) {
-        $("#entrance-fees").append("<p>Cost: $" + data.data[index].entranceFees[i].cost + ", " + data.data[index].entranceFees[i].description + "</p>");
+        $("#entrance-fees-items").append("<p>Fee: $" + data.data[index].entranceFees[i].cost + ", " + data.data[index].entranceFees[i].description + "</p>");
     }
+    $("#entrance-fees-items").append("</br>");
+
     // hours of operation display
     $("#operating-hours").empty();
     $("#operating-hours").text("Operating hours:");
     var hours = data.data[index].operatingHours;
+    $("#operating-hours-items").empty();
     for (i = 0; i < hours.length; i++) {
-        $("#operating-hours").append("<p>" + (i+1) + ") " + hours[i].name + ". " + hours[i].description + "</p>");
-        $("#operating-hours").append("<p>Open-Hours: Sunday: " + hours[i].standardHours.sunday + "; Monday: " + hours[i].standardHours.monday + "; Tuesday: " + hours[i].standardHours.tuesday + "; Wednesday: " + hours[i].standardHours.wednesday + "; Thursday: " + hours[i].standardHours.thursday + "; Friday: " + hours[i].standardHours.friday + "; Saturday: " + hours[i].standardHours.saturday + ".</p>");
-        $("#operating-hours").append("<p>Exception days (Park Closed):</p>"); 
+        $("#operating-hours-items").append("<p>" + (i+1) + ") " + hours[i].name + ". " + hours[i].description + "</p>");
+        $("#operating-hours-items").append("<p>Open-Hours: Sunday: " + hours[i].standardHours.sunday + "; Monday: " + hours[i].standardHours.monday + "; Tuesday: " + hours[i].standardHours.tuesday + "; Wednesday: " + hours[i].standardHours.wednesday + "; Thursday: " + hours[i].standardHours.thursday + "; Friday: " + hours[i].standardHours.friday + "; Saturday: " + hours[i].standardHours.saturday + ".</p>");
+        $("#operating-hours-items").append("<p><em><strong>Exception days (Park Closed):</strong></em></p>"); 
         var exceptions = hours[i].exceptions;
         if (exceptions.length > 0) {
             // for loop for exceptions (park closed days)
             for (e = 0; e < exceptions.length; e++) {
-                $("#operating-hours").append("<p>* " + exceptions[e].name + ": from " + exceptions[e].startDate + " to " + exceptions[e].endDate + "</p>");
+                $("#operating-hours-items").append("<p>* " + exceptions[e].name + ": from " + exceptions[e].startDate + " to " + exceptions[e].endDate + "</p>");
             }
         } else {
-            $("#operating-hours").append("<p>No exceptions</p>"); 
+            $("#operating-hours-items").append("<p>No exceptions</p>"); 
         }
     }
+    $("#operating-hours-items").append("</br>");
     // Directions display
     $("#directions").empty();
     $("#directions").text("Directions:");
@@ -352,7 +361,7 @@ var displayWeather = function(weatherData) {
         // add date, image, temperature and humidity to html element
         $(forecastEl[i]).append("<p class='level-item'>" + forecastMonth + "/" + forecastDay + "/" + forecastYear + "</p>");
         $(forecastEl[i]).append("<p class='level-item'>" + weatherData.daily[forecastIndex].weather[0].main + "</p>");
-        $(forecastEl[i]).append("<img class='center' src='https://openweathermap.org/img/wn/" + weatherData.daily[forecastIndex].weather[0].icon + "@2x.png'></img>");
+        $(forecastEl[i]).append("<div class='level-item'><img src='https://openweathermap.org/img/wn/" + weatherData.daily[forecastIndex].weather[0].icon + "@2x.png'></img></div>");
         $(forecastEl[i]).append("<p class='level-item'> Temp min: " + weatherData.daily[forecastIndex].temp.min + " &#176F</p>");
         $(forecastEl[i]).append("<p class='level-item'> Temp max: " + weatherData.daily[forecastIndex].temp.max + " &#176F</p>");
         $(forecastEl[i]).append("<p class='level-item'>Humidity: " + weatherData.daily[forecastIndex].humidity + " %</p>");
