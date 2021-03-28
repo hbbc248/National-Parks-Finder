@@ -315,13 +315,4 @@ var newPictureDisplay = function() {
     $("#pic-page").text("Picture " + picNum + " out of " + picLast);
 };
 
-
-
-
-
-
-
-
-
-
 loadHistory();
