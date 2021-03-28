@@ -4,7 +4,6 @@
 
 
 .container {
-    height: 300px;
     max-height: fit-content;
     margin: 20px 10px;
     min-height: 300px;
@@ -23,11 +22,11 @@
 }
 
 #park-info-container {
-    height: 400px;
+    height: auto;
 }
 
 #search-results-container {
-    height: 80%;
+    height: auto;
 }
 
 #results-card {
@@ -39,12 +38,17 @@
     margin-top: 5px;
 }
 
+#pic-btns {
+    min-width: 150px;
+    margin-top: 5px;
+}
+
 #img-container {
     min-height: fit-content
 }
 
 #img-holder {
-   max-height: 400px;
+   max-height: auto;
    max-width: 550px;
    min-width: 325px;
 }

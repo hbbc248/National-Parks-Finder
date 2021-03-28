@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>US National Park Finder</title>
 </head>
 
@@ -111,14 +112,14 @@
             </div>
 
             <div class="columns is-centered">
-                <div class="container box column is-6 is-fluid" id="history-container">
+                <div class="container box column is-fluid" id="history-container">
                     <h1 class="title">History</h1>
                     <br>
                     <ul id="history-list">
                        
                     </ul>
                 </div>
-                <div class="column is-auto"></div>
+                
             </div>
 
             <div class="columns is-centered">
@@ -176,18 +177,18 @@
 
             <div class="columns is-centered">
                 <div class="column is-auto"></div>
-                <div class="column is-4" id="arrow-buttons">
-                    <button class="button">
-                        <span class="icon">
-                            <i class="fas fa-arrow-left"></i>
+                <div class="column is-4" id="pic-btns">
+                    <button id="previous" class='button'>
+                        <span class='icon'>
+                            <i class='fas fa-arrow-left'></i>
                         </span>
                     </button>
-
-                    <button class="button">
-                        <span class="icon">
-                            <i class="fas fa-arrow-right"></i>
+                    <button id="next" class='button'>
+                        <span class='icon'>
+                            <i class='fas fa-arrow-right'></i>
                         </span>
                     </button>
+                    
                 </div>
                 <div class="column is-auto"></div>
             </div>
@@ -202,7 +203,13 @@
 
                 <div class="card-content">
                     <div id="park-info" class="park-content">
-                        
+                        <h2 id="park-name"></h2>
+                        <p id="park-description"></p>
+                        <p id="activities"></p>
+                        <div id="entrance-fees"></div>
+                        <div id="operating-hours"></div>
+                        <p id="directions"></p>
+                        <a id="more-info"></a></div>
                     </div>
                 </div>
             </div>

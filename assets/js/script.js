@@ -278,37 +278,34 @@ var picDisplay = function() {
     picPage = 0;
     picPageMax = singleParkData.images.length - 1;
     // clean everything on pictures <div>
-    $("#pictures").empty();
-    $("#pictures").append("<p id='imgTitle'>" + singleParkData.images[picPage].title + "</p>");
-    $("#pictures").append("<img id='image' src='" + singleParkData.images[picPage].url + "' alt='" + singleParkData.images[picPage].altText + "'></img>");
-    $("#pictures").append("<p id='imgCaption'>" + singleParkData.images[picPage].caption + " - By: " + singleParkData.images[picPage].credit + ".</p>");
+    $("#img-holder").empty();
+    $("#img-holder").append("<p id='imgTitle'>" + singleParkData.images[picPage].title + "</p>");
+    $("#img-holder").append("<img id='image' src='" + singleParkData.images[picPage].url + "' alt='" + singleParkData.images[picPage].altText + "'></img>");
+    $("#img-holder").append("<p id='imgCaption'>" + singleParkData.images[picPage].caption + " - By: " + singleParkData.images[picPage].credit + ".</p>");
     var picNum = picPage + 1;
     var picLast = picPageMax + 1;
-    $("#pictures").append("<p id='pic-page'>Picture " + picNum + " out of " + picLast + "</p>");
-    $("#pictures").append("<button id='previous'>Previous</button>");
-    $("#pictures").append("<button id='next'>Next</button>");
+    $("#img-holder").append("<p id='pic-page'>Picture " + picNum + " out of " + picLast + "</p>");  
+    
 };
 
-// Next or previous picture button was clicked
-$("#pictures").click (function(e) {
-    var buttonId = e.target.id;
-    if (buttonId === "next") {
-        if (picPage < picPageMax) {
-            picPage++;
-            // call new picture display
-            newPictureDisplay();
-        }
-        return;
-    }
-    if (buttonId === "previous") {
-        if (picPage > 0) {
-            picPage--;
-            // call new picture display
-            newPictureDisplay;
-        }
+// Previous picture button was clicked
+$("#previous").on("click", function() {
+    if (picPage > 0) {
+        picPage--;
+        // call new picture display
+        newPictureDisplay();
     }
 });
 
+// Next picture button was clicked
+$("#next").on("click", function() {
+    if (picPage < picPageMax) {
+        picPage++;
+        // call new picture display
+        newPictureDisplay();
+    }
+});
+       
 // new picture display
 var newPictureDisplay = function() {
     $("#imgTitle").text(singleParkData.images[picPage].title);
