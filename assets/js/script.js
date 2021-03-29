@@ -77,7 +77,7 @@ var getWeather = function(lat, lon) {
 
 // result number of pages definition function
 var pagesDefinition = function (data) {
-    totalPages = Math.floor((data.total - 1) / 10) + 1;
+    totalPages = Math.floor((data.data.length - 1) / 10) + 1;
     displaySearchResults(data);
 };
 
@@ -105,7 +105,7 @@ $("#left").on("click", function () {
 
 // function to display list of search results (need a UL element with id=search-list on html)
 var displaySearchResults = function(data) {
-    var total = data.total;
+    var total = data.data.length;
     var iMax = currentPage * 10;
     if (total < iMax) {
         iMax = total;
@@ -121,7 +121,13 @@ var displaySearchResults = function(data) {
 // One of the parks in search result was clicked
 $("#search-list").click (function(e) {
     var parkId = e.target.id;
-    $("#history-list").prepend("<li id='" + parksData.data[parkId].parkCode + "'>" + parksData.data[parkId].fullName + ' - ' + parksData.data[parkId].states + "</li>");
+    // remove form history if exist in there
+    var elId = parksData.data[parkId].parkCode;
+    if ($("#"+elId)) {
+        $("#"+elId).remove();  
+    }
+    // add on top of history list
+    $("#history-list").prepend("<li id='" + elId + "'>" + parksData.data[parkId].fullName + ' - ' + parksData.data[parkId].states + "</li>");
     // call history filter function
     historyCrop();
     // call display data function with park index and data
