@@ -300,6 +300,9 @@ var picDisplay = function() {
     var picNum = picPage + 1;
     var picLast = picPageMax + 1;
     $("#img-holder").append("<em><p class='level-item' id='pic-page'>Picture " + picNum + " out of " + picLast + "</p></em>");  
+    // show sections
+    $("#park-info-container").show();
+    $("#all-weather-container").show();
     // scroll screen to park info in 500 miliseconds
     $('html, body').animate({
         scrollTop: ($('#park-info-container').first().offset().top)
@@ -393,4 +396,7 @@ $(".delete").on("click", function(){
     $("#error-message").empty();
 });
 
+// this runs on page loading
+$("#park-info-container").hide();
+$("#all-weather-container").hide();
 loadHistory();
