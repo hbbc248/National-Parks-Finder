@@ -28,13 +28,13 @@
     <section class="container is-fluid" id="all-search-container">
         <div class="columns">
         
-            <div class="container is-fluid column  is-4" >
-                <div class="columns box is-centered" id="search-holder">
+            <div class="column  is-5" id="left-panel" >
+                <div class="columns is-vcentered card " id="search-holder">
                     
 
-                    <div class="column is-5">
-                        <h1 class="panel-heading"><strong>Key word</strong></h1>
-                        <input id="word" class="input is-medium is-info" type="text" placeholder="Search word">
+                    <div class="column is-auto">
+                        <h1 class="panel-heading"><strong>Keyword</strong></h1>
+                        <input id="word" class="input is-medium is-info" type="text" placeholder="Keyword">
                     </div>
 
                     <div class="column is-3">
@@ -106,17 +106,12 @@
                         <button class="button is-medium is-primary" id="search">Search</button>
                     </div>
                 </div>
-
-                <div class="columns is-centered">
-                    <div class="column conntainer is-fluid">
-                        <div class="card" id="history-container">
-                            <h1 class="panel-heading">History</h1>
-                            <ul id="history-list"></ul>
-                        </div>
+                <div class="card" id="history-container">
+                    <h1 class="panel-heading">History</h1>
+                    <div class="column is-auto">
+                        <ul id="history-list"></ul>
                     </div>
-                    
                 </div>
-
                 <div class="columns is-centered">
                     <div class="column">
 
@@ -125,9 +120,7 @@
                     
                 </div>
             </div>
-            
-
-            <div class="container is-fluid column is-7" id="search-results-container" >
+            <div class="column is-5" id="search-results-container" >
                 <div class="card" id="results-card">
                     <h1 class="panel-heading"><strong>Search Results</strong></h1>
                     
@@ -138,23 +131,18 @@
                         <p id="page-info"></p>
                     </div>
                     
-                </div>
-
-                <div class="columns is-centered">
-                    <div class="column is-auto"></div>
-                    <div class="column is-1" id="arrow-buttons">
-                        <button class="button" id='left'>
-                            <span class="icon">
-                                <i class="fas fa-arrow-left"></i>
-                            </span>
-                            </button>
-                        <button class="button" id="right">
+                </div>              
+                <div class="buttons is-centered" id="arrow-buttons">
+                    <button class="button" id='left'>
+                        <span class="icon">
+                            <i class="fas fa-arrow-left"></i>
+                        </span>
+                    </button>
+                    <button class="button" id="right">
                         <span class="icon">
                             <i class="fas fa-arrow-right"></i>
                         </span>
-                        </button>
-                    </div>
-                    <div class="column is-auto"></div>
+                    </button>
                 </div>
             </div>
         </div>

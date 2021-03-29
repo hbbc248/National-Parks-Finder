@@ -27,6 +27,8 @@
 
 #search-results-container {
     height: auto;
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 #results-card {
@@ -55,7 +57,8 @@
 #search-holder {
     padding: 0;
     padding-bottom: 5px;
-    margin-top: 20px;
+    margin: 0;
+    margin-bottom: 20px;
 }
 
 .panel-heading {
@@ -70,4 +73,13 @@
 
 #image {
     border: 2px solid gray;
+}
+
+#history-container {
+    margin-bottom: 20px;
+}
+
+#left-panel {
+    margin-left: 40px;
+    margin-top: 20px;
 }
