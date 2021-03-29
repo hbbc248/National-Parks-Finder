@@ -31,7 +31,8 @@ var getPark = function(city, state) {
                 pagesDefinition(parksData);
             });
         } else {
-            alert("Error: " + response.status);
+            $("#error-message").text("National Parks server response error. Please try again later.")
+            $(".modal").addClass("is-active");
         }
     });
 };
@@ -50,7 +51,8 @@ var getParkByCode = function(parkCode) {
 
             });
         } else {
-            alert("Error: " + response.status);
+            $("#error-message").text("National Parks server response error. Please try again later.")
+            $(".modal").addClass("is-active");
         }
     });
 };
@@ -67,7 +69,8 @@ var getWeather = function(lat, lon) {
                 displayWeather(weatherData);
             });
         } else {
-            alert("Error: " + response.status);
+            $("#error-message").text("OpenWeather server response error. Please try again later.")
+            $(".modal").addClass("is-active");
         }
     });
 };
@@ -193,9 +196,9 @@ $("#search").on("click", function() {
         currentPage = 1;
         getPark(searchWord, state);
     } else {
-        
-        $(".popup-overlay, .popup-content").addClass("active");
-        
+        $("#error-message").text("You must use at least one search key. Type a keyword or select a state to search.")
+        $(".modal").addClass("is-active");
+
     }
 });
 
@@ -297,7 +300,10 @@ var picDisplay = function() {
     var picNum = picPage + 1;
     var picLast = picPageMax + 1;
     $("#img-holder").append("<em><p class='level-item' id='pic-page'>Picture " + picNum + " out of " + picLast + "</p></em>");  
-    
+    // scroll screen to park info in 500 miliseconds
+    $('html, body').animate({
+        scrollTop: ($('#park-info-container').first().offset().top)
+    },500); 
 };
 
 // Previous picture button was clicked
@@ -374,5 +380,17 @@ var displayWeather = function(weatherData) {
     }
 
 }
+
+// modal close event lisenter
+$(".modal-close").on("click", function(){
+    $(".modal").removeClass("is-active");
+    $("#error-message").empty();
+});
+
+// modal close event lisenter
+$(".delete").on("click", function(){
+    $(".modal").removeClass("is-active");
+    $("#error-message").empty();
+});
 
 loadHistory();
