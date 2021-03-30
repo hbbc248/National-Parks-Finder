@@ -1,1 +1,2 @@
-# life-finder
+# Hike-Finder
+
