@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
     <link rel="stylesheet" href="assets/css/bulma.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>US National Park Finder</title>
 </head>
 
 <body>
-    <header class="hero is-info is-mobile">
+    <header class="hero is-primary is-mobile">
         <div class="hero-body">
           <p class="title">
             US National Park Finder
@@ -40,7 +40,7 @@
                             <p class="level-item">And / Or</p>
                         </div>
                         <div class="column">
-                            <div class="select is-primary is-medium">
+                            <div class="select is-info is-medium">
                                 <select class="select is-primary" name="state" id="state-select" class="select">
                                     <option value="">--</option>
                                     <option value="AL">AL</option>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="column">
-                            <button class="button is-medium is-primary" id="search">Search</button>
+                            <button class="button is-medium is-info" id="search">Search</button>
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                 <div class="columns is-centered">
                     <div class="column">
 
-                        <button class="button is-danger is-medium is-light" id="clear">Clear History</button>
+                        <button class="button is-info is-medium is-light" id="clear">Clear History</button>
                     </div>
                     
                 </div>
@@ -151,24 +151,21 @@
 
 
     <section class="columns container is-fluid" id="park-info-container">
-        <div class="column is-4" id="img-container">
-            
-            <div class="columns is-centered">
-                <div class="column level" id="img-holder">
-                    <img  id="image" src="assets/images/pexels-photo-417074.jpeg" alt="Placeholder image">
-                </div>
+        <div class="column is-4" id="img-container"> 
+            <div class="column card level" id="img-holder">
+                <img  id="image" src="assets/images/pexels-photo-417074.jpeg" alt="Placeholder image">
             </div>
             <div class="buttons is-centered">
-                    <button id="previous" class='button'>
-                        <span class='icon'>
-                            <i class='fas fa-arrow-left'></i>
-                        </span>
-                    </button>
-                    <button id="next" class='button'>
-                        <span class='icon'>
-                            <i class='fas fa-arrow-right'></i>
-                        </span>
-                    </button>
+                <button id="previous" class='button'>
+                    <span class='icon'>
+                        <i class='fas fa-arrow-left'></i>
+                    </span>
+                </button>
+                <button id="next" class='button'>
+                    <span class='icon'>
+                        <i class='fas fa-arrow-right'></i>
+                    </span>
+                </button>    
             </div>
         </div>
 
