@@ -128,6 +128,9 @@ $("#search-list").click (function(e) {
     }
     // add on top of history list
     $("#history-list").prepend("<li id='" + elId + "'>" + parksData.data[parkId].fullName + ' - ' + parksData.data[parkId].states + "</li>");
+    // show history elements if they are hidden
+    $("#history-container").show();
+    $("#clear").show();
     // call history filter function
     historyCrop();
     // call display data function with park index and data
@@ -162,6 +165,8 @@ var saveHistoryList = function() {
 var loadHistory = function() {
     var loadedHistoryList = JSON.parse(localStorage.getItem("history-list"));
     if (loadedHistoryList) {
+        $("#history-container").show();
+        $("#clear").show();
         for (i = 0; i < loadedHistoryList.id.length; i++) {
             $("#history-list").append("<li id='" + loadedHistoryList.id[i] + "'>" + loadedHistoryList.text[i] + "</li>");
         }
@@ -170,6 +175,10 @@ var loadHistory = function() {
 
 // Clear History button was click
 $("#clear").on("click", function() {
+    // hide history elements
+    $("#history-container").hide();
+    $("#clear").hide();
+    // clear history element and save
     $("#history-list").empty();
     historyList = {
         text: [],
@@ -403,6 +412,9 @@ $(".delete").on("click", function(){
 });
 
 // this runs on page loading
+// hide history elements 
 $("#park-info-container").hide();
 $("#all-weather-container").hide();
+$("#history-container").hide();
+$("#clear").hide();
 loadHistory();
