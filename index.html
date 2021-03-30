@@ -39,9 +39,11 @@
                             <div class="column is-full is-two-fifths-desktop">   
                                 <input id="word" class="input is-info" type="text" placeholder="Keyword">
                             </div>
+                            
                             <div class="column">
                                 <p class="level-item">And / Or</p>
                             </div>
+
                             <div class="colum is-centered">
                                 <div class="select is-info">
                                     <select name="state" id="state-select" class="select">
@@ -106,6 +108,7 @@
                                     </select>  
                                 </div>
                             </div>
+
                             <div class="column level">
                                 <div class="level-item">
                                     <button class="button is-info" id="search">Search</button>
@@ -115,15 +118,20 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="card" id="history-container">
+
                     <h1 class="panel-heading">History</h1>
                     <div class="column is-auto">
                         <ul id="history-list"></ul>
                     </div>
-                </div>               
+                </div> 
+
                 <button class="button is-info is-light" id="clear">Clear History</button>                    
             </div>
+
             <div class="column is-half is-two-fifths-desktop" id="search-results-container" >
+               
                 <div class="card" id="results-card">
                     <h1 class="panel-heading"><strong>Search Results</strong></h1>
                     
@@ -133,13 +141,15 @@
                         </ul>
                         <em><p id="page-info" class="level-item"></p></em>
                     </div>  
-                </div>              
+                </div> 
+
                 <div class="buttons is-centered arrow-buttons">
                     <button class="button" id='left'>
                         <span class="icon">
                             <i class="fas fa-arrow-left"></i>
                         </span>
                     </button>
+
                     <button class="button" id="right">
                         <span class="icon">
                             <i class="fas fa-arrow-right"></i>
@@ -149,6 +159,7 @@
             </div>
         </div>
     </section>
+
     <section class="container is-fullhd is-fluid" id="park-info-container">
         
         <div class="hero">
@@ -156,6 +167,7 @@
                 <p class="title is-3 level-item" id="park-name"></p>
             </div>
         </div>
+
         <div class="columns is-desktop "> 
             <div class="column is-full is-one-third-desktop" id="img-container">
                 <div class="card">
@@ -177,12 +189,14 @@
                     </button>    
                 </div>
             </div>
+
             <div class="column">
                 <div class="card">
                     
                     <h1 class="panel-heading">
                     About The Park
                     </h1>
+
                     <div class="card-content">
                         <div id="park-info" class="park-content">
                             <p id="park-description-title" class="title is-5"></p>
@@ -225,7 +239,7 @@
                 </div>
             </div>
 
-            <div class="column is-full is-two-thirds-desktop">
+            <div class="column is-full is-two-thirds-desktop" id="five-day">
                 <div class="card">
                     <h1 class="panel-heading">5 Day Forecast</h1>
 
@@ -240,6 +254,7 @@
             </div>
         </div>
     </section>
+
     <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-content">
@@ -253,29 +268,31 @@
                   </article>
             </article>
         </div>
+
         <button class="modal-close is-large" aria-label="close"></button>
+    
     </div>
 
-    <footer>
-        <footer class="is-small">
-            <div class="columns">
-                <div class="column footer-text">
-                    <p class="is-1">
-                        <p id="copyright">&copy Ibsarosa Corp. 2021</p>
-                    </p>
-                    <p class=" is-3">
-                        <a href="https://github.com/Sam-Walters93/hike-finder/blob/main/README.md" target="blank_" id="readMe">ReadMe</a>
-                    </p>
+   
+    <footer class="is-small">
+        <div class="columns">
+            <div class="column footer-text">
+                <p class="is-1">
+                    <p id="copyright">&copy Ibsarosa Corp. 2021</p>
+                </p>
+                <p class=" is-3">
+                    <a href="https://github.com/Sam-Walters93/hike-finder/blob/main/README.md" target="blank_" id="readMe">ReadMe</a>
+                </p>
+            </div>
+            <div class="column level is-2 logo-container">    
+                <div class="level-right">
+                    <img class="foot-logo" id="foot-logo" src="./assets/images/national-park-service-logo.svg.png">
                 </div>
-                <div class="column level is-2 logo-container">    
-                    <div class="level-right">
-                        <img class="foot-logo" id="foot-logo" src="./assets/images/national-park-service-logo.svg.png">
-                    </div>
-                </div>
-            </div>     
-        </footer>
-       
+            </div>
+        </div>     
     </footer>
+       
+   
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
