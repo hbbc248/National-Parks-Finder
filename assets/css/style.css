@@ -4,17 +4,18 @@
 }
 
 body {
-    background-color: hsl(171, 100%, 41%);
+    background-color: rgb(83, 97, 71);
 }
 
 header {
     background-image: linear-gradient(to right, rgb(83, 97, 71) , rgb(0, 0, 0));
 }
 
-#title { 
-    font-family: 'Alegreya Sans', sans-serif;
-
+footer {
+    background-image: linear-gradient(to right, rgb(83, 97, 71) , rgb(0, 0, 0));
+   
 }
+
 
 #tagline {
     font-family: 'Shadows Into Light', cursive;
@@ -30,6 +31,12 @@ header {
 
 #park-info-container {
     height: auto;
+}
+
+#park-name {
+    background-color: rgb(83, 97, 71);
+    color:white;
+    font-family: 'Alegreya Sans', sans-serif;
 }
 
 #results-card {
@@ -51,17 +58,33 @@ header {
 #history-container {
     margin-bottom: 20px;
 }
+
 li {
     cursor: pointer;
 }
+
 .logo-container {
     padding: 0;
     padding-right: 5px;
 }
- .logo {
-     max-width: 95px;
- }
 
+.logo {
+     max-width: 95px;
+}
+
+.foot-logo {
+    max-width: 95px;
+    max-height: 50px;
+    margin: 30px 30px 10px 10px;
+}
+
+.footer-text {
+    margin: 15px 0px 0px 30px;
+}
+
+.footer-text p, a{
+    color: grey;
+}
 /* pseudo (hover) style start */
 
 li:hover {
