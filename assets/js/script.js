@@ -354,7 +354,7 @@ var displayWeather = function(weatherData) {
     // UV index print
     var uvIndex = weatherData.current.uvi;
     $("#UV-index").empty();
-    $("#UV-index").text("UV Index: ");
+    $("#UV-index").text("UV Index:");
     $("#UV-index").append("<span id='index' class='badge p-1 fs-6'></span>");
     $("#index").text(uvIndex);
     if (uvIndex <= 2) {
@@ -382,8 +382,8 @@ var displayWeather = function(weatherData) {
         $(forecastEl[i]).append("</br><p class='level-item subtitle is-5'>" + forecastMonth + "/" + forecastDay + "/" + forecastYear + "</p>");
         $(forecastEl[i]).append("<p class='level-item'><strong>" + weatherData.daily[forecastIndex].weather[0].main + "</strong></p>");
         $(forecastEl[i]).append("<div class='level-item'><img src='https://openweathermap.org/img/wn/" + weatherData.daily[forecastIndex].weather[0].icon + "@2x.png'></img></div>");
-        $(forecastEl[i]).append("<p class='level-item'>Temp min: " + weatherData.daily[forecastIndex].temp.min + " &#176F</p>");
-        $(forecastEl[i]).append("<p class='level-item'>Temp max: " + weatherData.daily[forecastIndex].temp.max + " &#176F</p>");
+        $(forecastEl[i]).append("<p class='level-item'>Temp min: " + Math.floor(weatherData.daily[forecastIndex].temp.min) + " &#176F</p>");
+        $(forecastEl[i]).append("<p class='level-item'>Temp max: " + Math.floor(weatherData.daily[forecastIndex].temp.max) + " &#176F</p>");
         $(forecastEl[i]).append("<p class='level-item'>Humidity: " + weatherData.daily[forecastIndex].humidity + " %</p>");
         
     }
