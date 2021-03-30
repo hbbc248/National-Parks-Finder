@@ -37,4 +37,16 @@ body {
 #history-container {
     margin-bottom: 20px;
 }
+li {
+    cursor: pointer;
+}
+
+/* pseudo (hover) style start */
+
+li:hover {
+    background-color: hsl(171, 41%, 80%);;
+    opacity: 0.8; 
+    font-weight: bold; 
+}
+
 
