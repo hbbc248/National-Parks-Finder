@@ -164,7 +164,7 @@ var saveHistoryList = function() {
 // load history from localstorage
 var loadHistory = function() {
     var loadedHistoryList = JSON.parse(localStorage.getItem("history-list"));
-    if (loadedHistoryList) {
+    if (loadedHistoryList.id.length) {
         $("#history-container").show();
         $("#clear").show();
         for (i = 0; i < loadedHistoryList.id.length; i++) {
@@ -209,6 +209,8 @@ $("#search").on("click", function() {
     if ((searchWord) || (state)) {
         // reset current page
         currentPage = 1;
+        // show results container
+        $("#search-results-container").show();
         getPark(searchWord, state);
     } else {
         $("#error-message").text("You must use at least one search key. Type a keyword or select a state to search.")
@@ -303,7 +305,7 @@ var displayParkInfo = function(index, data) {
     $("#more-info").attr("target", "_blank");
 };
 
-// park picturas pagination filter
+// park pictures pagination filter
 var picDisplay = function() {
     picPage = 0;
     picPageMax = singleParkData.images.length - 1;
@@ -412,9 +414,10 @@ $(".delete").on("click", function(){
 });
 
 // this runs on page loading
-// hide history elements 
+// hide history elements, parkinfo and result elements
 $("#park-info-container").hide();
 $("#all-weather-container").hide();
 $("#history-container").hide();
 $("#clear").hide();
+$("#search-results-container").hide();
 loadHistory();
