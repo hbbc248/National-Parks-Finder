@@ -2,69 +2,82 @@
     z-index: 0;
 }
 
-
-.container {
-    height: 300px;
-    max-height: fit-content;
-    margin: 20px 10px;
-    min-height: 300px;
+body {
+    background-color: hsl(171, 100%, 41%);
 }
-
 
 #all-search-container {
     background-image: url("../images/hiking.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 700px;
-    padding: 0;
-    margin: 0;
-    border-top: grey 3px solid;
+    min-height: 700px;
 }
 
 #park-info-container {
-    height: 400px;
-}
-
-#search-results-container {
-    height: 80%;
+    height: auto;
 }
 
 #results-card {
-    height: 80%;
+    height: auto;
 }
 
-#arrow-buttons {
-    min-width: 150px;
+.arrow-buttons {
     margin-top: 5px;
 }
 
-#img-container {
-    min-height: fit-content
-}
-
-#img-holder {
-   max-height: 400px;
-   max-width: 550px;
-   min-width: 325px;
-}
-
-#img-holder img {
-    height: 100%;
-    width: 100%;
- }
-
- #all-weather-container {
-     margin-top: 50px;
- }
-
 #search-holder {
-    padding: 0;
-    padding-bottom: 5px;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-.panel-heading {
-    width: 100%;
+#image {
+    border: 2px solid gray;
 }
+
+#history-container {
+    margin-bottom: 20px;
+}
+li {
+    cursor: pointer;
+}
+.logo-container {
+    padding: 0;
+    padding-right: 5px;
+}
+ .logo {
+     max-width: 95px;
+ }
+
+/* pseudo (hover) style start */
+
+li:hover {
+    background-color: hsl(171, 41%, 80%);;
+    opacity: 0.8; 
+    font-weight: bold; 
+}
+
+/* Media query for mobile phones and smaller */
+@media screen and  (max-width: 767px) {
+    .logo-container {
+        visibility: hidden;
+    }
+    .logo {
+        width: 0px;
+    }
+
+    .header-text .is-1 {
+        font-size: 28px;
+        text-align: center;
+    }
+    .header-text .is-3 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .hero-body {
+        height: auto;
+        padding: 10px;
+    }
+
+}
+
 
