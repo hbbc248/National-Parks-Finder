@@ -52,8 +52,8 @@ https://sam-walters93.github.io/hike-finder/
 ## *Created By* 
 *** 
 
-Ibrahim Zerlin
-Sam Walters
-Ryan Lynn Rosas 
+- Ibrahim Zerlin
+- Sam Walters
+- Ryan Lynn Rosas 
 
 
