@@ -4,16 +4,21 @@
 }
 
 body {
-    background-color: hsl(171, 100%, 41%);
+    background-color: rgb(83, 97, 71);
 }
 
 header {
     background-image: linear-gradient(to right, rgb(83, 97, 71) , rgb(0, 0, 0));
 }
 
-#title { 
-    font-family: 'Alegreya Sans', sans-serif;
+footer {
+    background-image: linear-gradient(to right, rgb(83, 97, 71) , rgb(0, 0, 0));
+}
 
+
+#title { 
+    
+    
 }
 
 #tagline {
@@ -30,6 +35,12 @@ header {
 
 #park-info-container {
     height: auto;
+}
+
+#park-name {
+    background-color: rgb(83, 97, 71);
+    color:white;
+    font-family: 'Alegreya Sans', sans-serif;
 }
 
 #results-card {
