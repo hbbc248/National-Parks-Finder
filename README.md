@@ -11,16 +11,16 @@ SO THAT I can plan my trip efficiently and not go during inclement weather
 
 ## *Acceptance Criteria*
 
-> GIVEN I am using this website to locate and plan a trip to a National park\ 
+> GIVEN I am using this website to locate and plan a trip to a National park\
 WHEN I open the website\
 THEN I am given the option to search by keyword or location\
 WHEN I am presented options\
 THEN I am able to sort through them\
-WHEN I choose one of the options\ 
+WHEN I choose one of the options\
 THEN the website displays, pertinent information, relatable photographs, and weather data\
 THEN the site saves my search data for later reference\
-WHEN I want additional information or directions\ 
-THEN I am provided with a link to the selected park's information page\
+WHEN I want additional information or directions\
+THEN I am provided with a link to the selected park's information page
 
 - Use a CSS framework other than Bootstrap.
 - Be deployed to GitHub Pages.
