@@ -5,8 +5,10 @@
 
 ## *User Story*
 
-AS A fan of the outdoors 
-**I WANT** an application to tell me the closest national parks and landmarks, display info about the selected park/landmark, and display weather data\
+AS A fan of the outdoors
+\
+**I WANT** an application to tell me the closest national parks and landmarks, display info about the selected park/landmark, and display weather data
+\
 **SO THAT** I can plan my trip efficiently and not go during inclement weather
 
 ## *Acceptance Criteria*
