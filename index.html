@@ -11,25 +11,20 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>US National Park Finder</title>
 </head>
-
 <body>
-    <header class="hero is-primary is-mobile">
+    <header class="hero is-primary">
         <div class="hero-body">
-          <p class="title">
+          <p class="title is-1">
             US National Park Finder
           </p>
-          <p class="subtitle">
+          <p class="subtitle is-3">
             Discover the Wild
           </p>
         </div>
     </header>
-
-
     <section class="container is-fluid" id="all-search-container">
         <div class="columns">
-        
-            <div class="column is-half is-two-fifths-desktop" id="left-panel" >
-                
+            <div class="column is-half is-two-fifths-desktop" id="left-panel" > 
                 <div class="card">
                     <h1 class="panel-heading"><strong>Search</strong></h1>
                     <div class="column" id="search-holder">
@@ -129,8 +124,7 @@
 
                         </ul>
                         <em><p id="page-info" class="level-item"></p></em>
-                    </div>
-                    
+                    </div>  
                 </div>              
                 <div class="buttons is-centered arrow-buttons">
                     <button class="button" id='left'>
@@ -147,57 +141,57 @@
             </div>
         </div>
     </section>
-
-
     <section class="container is-fullhd is-fluid" id="park-info-container">
-    <div class="columns is-desktop "> 
         
-        <div class="column is-full is-one-third-desktop" id="img-container">
-            <div class="card">
-                <h1 class="panel-heading"><strong>Park Pictures</strong></h1> 
-                <div class="column card level" id="img-holder">                
-                    <img  id="image" src="assets/images/pexels-photo-417074.jpeg" alt="Placeholder image">  
+        <div class="hero is-primary">
+            <div class="hero-body">
+                <p class="title is-3 level-item" id="park-name"></p>
+            </div>
+        </div>
+        <div class="columns is-desktop "> 
+            <div class="column is-full is-one-third-desktop" id="img-container">
+                <div class="card">
+                    <h1 class="panel-heading"><strong>Park Pictures</strong></h1> 
+                    <div class="column card level" id="img-holder">                
+                        <img  id="image" src="assets/images/pexels-photo-417074.jpeg" alt="Placeholder image">  
+                    </div>
+                </div>
+                <div class="buttons is-centered arrow-buttons">
+                    <button id="previous" class='button'>
+                        <span class='icon'>
+                            <i class='fas fa-arrow-left'></i>
+                        </span>
+                    </button>
+                    <button id="next" class='button'>
+                        <span class='icon'>
+                            <i class='fas fa-arrow-right'></i>
+                        </span>
+                    </button>    
                 </div>
             </div>
-            <div class="buttons is-centered arrow-buttons">
-                <button id="previous" class='button'>
-                    <span class='icon'>
-                        <i class='fas fa-arrow-left'></i>
-                    </span>
-                </button>
-                <button id="next" class='button'>
-                    <span class='icon'>
-                        <i class='fas fa-arrow-right'></i>
-                    </span>
-                </button>    
-            </div>
-            
-        </div>
-        <div class="column">
-            <div class="card">
-                
-                <h1 class="panel-heading">
-                About The Park
-                </h1>
-
-                <div class="card-content">
-                    <div id="park-info" class="park-content">
-                        <h2 id="park-name" class="title is-3"></h2>
-                        <p id="park-description-title" class="title is-5"></p>
-                        <p id="park-description"></p>
-                        <p id="activities-title" class="title is-5"></p>
-                        <p id="activities"></p>
-                        <p id="entrance-fees" class="title is-5"></p>
-                        <div id="entrance-fees-items"></div>
-                        <p id="operating-hours" class="title is-5"></p>
-                        <div id="operating-hours-items"></div>
-                        <div id="directions"></div>
-                        <a id="more-info" class="subtitle is-5"></a></div>
+            <div class="column">
+                <div class="card">
+                    
+                    <h1 class="panel-heading">
+                    About The Park
+                    </h1>
+                    <div class="card-content">
+                        <div id="park-info" class="park-content">
+                            <p id="park-description-title" class="title is-5"></p>
+                            <p id="park-description"></p>
+                            <p id="activities-title" class="title is-5"></p>
+                            <p id="activities"></p>
+                            <p id="entrance-fees" class="title is-5"></p>
+                            <div id="entrance-fees-items"></div>
+                            <p id="operating-hours" class="title is-5"></p>
+                            <div id="operating-hours-items"></div>
+                            <div id="directions"></div>
+                            <a id="more-info" class="subtitle is-5"></a></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </section>
 
     <section class=" container is-fullhd is-fluid" id="all-weather-container">

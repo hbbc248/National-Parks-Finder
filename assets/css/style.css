@@ -1,9 +1,6 @@
 * {
     z-index: 0;
 }
-.container {
-    margin-bottom: 30px;
-}
 
 body {
     background-color: hsl(171, 100%, 41%);
