@@ -40,6 +40,13 @@ body {
 li {
     cursor: pointer;
 }
+.logo-container {
+    padding: 0;
+    padding-right: 5px;
+}
+ .logo {
+     max-width: 95px;
+ }
 
 /* pseudo (hover) style start */
 
@@ -47,6 +54,15 @@ li:hover {
     background-color: hsl(171, 41%, 80%);;
     opacity: 0.8; 
     font-weight: bold; 
+}
+
+/* Media query for mobile phones and smaller */
+@media screen and  (max-width: 767px) {
+    .logo-container {
+        visibility: hidden;
+    }
+    .logo {
+        width: 0px;
 }
 
 
