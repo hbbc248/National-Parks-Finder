@@ -13,11 +13,8 @@ header {
 
 footer {
     background-image: linear-gradient(to right, rgb(83, 97, 71) , rgb(0, 0, 0));
+    margin-top: 10px;
     
-}
-
-.level-item {
-    margin-bottom: 0px !important;
 }
 
 
@@ -31,6 +28,11 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 700px;
+}
+
+
+#day-card {
+    margin-bottom: 11px;
 }
 
 
