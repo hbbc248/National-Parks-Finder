@@ -1,7 +1,8 @@
 # [Hike-Finder](https://sam-walters93.github.io/hike-finder/)
 
-![hike-finder-search](https://user-images.githubusercontent.com/68794066/113057887-32886c00-9173-11eb-8f8d-5e63b52ca656.PNG)
-![hike-finder-info](https://user-images.githubusercontent.com/68794066/113057893-33b99900-9173-11eb-88e8-8f5c440fca1b.PNG)
+![hike-finder-info](https://user-images.githubusercontent.com/68794066/113069551-32de3280-9186-11eb-8dff-eebc6999531b.PNG)
+![hike-finder-search](https://user-images.githubusercontent.com/68794066/113069547-31ad0580-9186-11eb-9518-f06d7357d036.PNG)
+
 
 ## *User Story*
 

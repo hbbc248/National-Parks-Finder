@@ -395,7 +395,7 @@ var displayWeather = function(weatherData) {
         $(forecastEl[i]).append("<div class='level-item'><img src='https://openweathermap.org/img/wn/" + weatherData.daily[forecastIndex].weather[0].icon + "@2x.png'></img></div>");
         $(forecastEl[i]).append("<p class='level-item'>Temp min: " + Math.floor(weatherData.daily[forecastIndex].temp.min) + " &#176F</p>");
         $(forecastEl[i]).append("<p class='level-item'>Temp max: " + Math.floor(weatherData.daily[forecastIndex].temp.max) + " &#176F</p>");
-        $(forecastEl[i]).append("<p class='level-item'>Humidity: " + weatherData.daily[forecastIndex].humidity + " %</p>");
+        $(forecastEl[i]).append("<p class='level-item' style='margin-bottom: 0px;'>Humidity: " + weatherData.daily[forecastIndex].humidity + " %</p>");
         
     }
 
