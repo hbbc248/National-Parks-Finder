@@ -24,9 +24,8 @@ var getPark = function(city, state) {
         // request was succesful
         if(response.ok) {
             response.json().then(function(data) {
-                parksData = data;
-                console.log(parksData);
-                if (parksData.data.length === 0) {
+                console.log(data);
+                if (data.data.length === 0) {
                     $("#error-message").text("No National Parks found with that keyword, please try something else.")
                     $(".modal").addClass("is-active");
                     return false;
@@ -34,7 +33,7 @@ var getPark = function(city, state) {
                 // show results container
                 $("#search-results-container").show();
                 // call display data function
-                pagesDefinition(parksData);
+                pagesDefinition(data);
             });
         } else {
             $("#error-message").text("National Parks server response error. Please try again later.")
@@ -83,6 +82,8 @@ var getWeather = function(lat, lon) {
 
 // result number of pages definition function
 var pagesDefinition = function (data) {
+    // set aside data to global variable for other function to use and in case search bottom is clicked again.
+    parksData = data;
     totalPages = Math.floor((data.data.length - 1) / 10) + 1;
     displaySearchResults(data);
 };
@@ -406,16 +407,22 @@ var displayWeather = function(weatherData) {
 
 }
 
-// modal close event lisenter
-$(".modal-close").on("click", function(){
+// close modal Function
+var closeModal = function () {
     $(".modal").removeClass("is-active");
     $("#error-message").empty();
+    // clear value in keyword input
+    $("#word").val("");
+};
+
+// modal close event lisenter
+$(".modal-close").on("click", function(){
+    closeModal();
 });
 
 // modal close event lisenter
 $(".delete").on("click", function(){
-    $(".modal").removeClass("is-active");
-    $("#error-message").empty();
+    closeModal();
 });
 
 // this runs on page loading
