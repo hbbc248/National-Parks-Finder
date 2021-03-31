@@ -24,9 +24,15 @@ var getPark = function(city, state) {
         // request was succesful
         if(response.ok) {
             response.json().then(function(data) {
-
                 parksData = data;
                 console.log(parksData);
+                if (parksData.data.length === 0) {
+                    $("#error-message").text("No National Parks found with that keyword, please try something else.")
+                    $(".modal").addClass("is-active");
+                    return false;
+                }
+                // show results container
+                $("#search-results-container").show();
                 // call display data function
                 pagesDefinition(parksData);
             });
@@ -209,8 +215,7 @@ $("#search").on("click", function() {
     if ((searchWord) || (state)) {
         // reset current page
         currentPage = 1;
-        // show results container
-        $("#search-results-container").show();
+        // Call get park function
         getPark(searchWord, state);
     } else {
         $("#error-message").text("You must use at least one search key. Type a keyword or select a state to search.")
