@@ -11,6 +11,10 @@ header {
     background-image: linear-gradient(to right, rgb(83, 97, 71) , rgb(0, 0, 0));
 }
 
+#park {
+    color: #c66c36;
+}
+
 footer {
     background-image: linear-gradient(to right, rgb(83, 97, 71) , rgb(0, 0, 0));
     margin-top: 10px;

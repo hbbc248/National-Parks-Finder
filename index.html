@@ -7,16 +7,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
     <link rel="stylesheet" href="assets/css/bulma.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>US National Park Finder</title>
 </head>
+
 <body>
     <header class="hero is-primary">
         <div class="columns hero-body">
             <div class="column header-text">
                 <p class="title is-1">
-                    <a href="./index.html" id="title">US National Park Finder</a>
+                    <a href="./index.html" id="title">U.S. National <span id="park">Park</span> Finder</a>
                 </p>
                 <p class="subtitle is-3">
                     <a href="./index.html" id="tagline">Discover the Wild</a>
@@ -29,6 +30,7 @@
             </div>
         </div>     
     </header>
+
     <section class="container is-fluid" id="all-search-container">
         <div class="columns">
             <div class="column is-half is-two-fifths-desktop" id="left-panel" > 
@@ -122,9 +124,11 @@
                 <div class="card" id="history-container">
 
                     <h1 class="panel-heading">History</h1>
+
                     <div class="column is-auto">
                         <ul id="history-list"></ul>
                     </div>
+
                 </div> 
 
                 <button class="button is-info is-light" id="clear">Clear History</button>                    
@@ -133,9 +137,11 @@
             <div class="column is-half is-two-fifths-desktop" id="search-results-container" >
                
                 <div class="card" id="results-card">
+
                     <h1 class="panel-heading"><strong>Search Results</strong></h1>
                     
                     <div class="column is-auto" id="search-results-holder">
+
                         <ul id="search-list">
 
                         </ul>
