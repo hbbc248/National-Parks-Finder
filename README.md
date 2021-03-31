@@ -38,7 +38,7 @@ AS A fan of the outdoors
 
 ## *Technologies Used*
 
-Languages: *JavaScript*, *CSS*, *HTML*
+Languages: *JavaScript*, *CSS*, *HTML*, *jQuery*
 
 CSS Framework: [Bulma](https://bulma.io/)
 
