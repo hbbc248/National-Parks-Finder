@@ -45,7 +45,7 @@ CSS Framework: [Bulma](https://bulma.io/)
 Third-Party APIs: [Open Weather](https://openweathermap.org/api), [US National Parks](https://www.nps.gov/subjects/developer/api-documentation.htm#/parks/getPark)
 
 
-https://sam-walters93.github.io/hike-finder/
+https://hbbc248.github.io/National-Parks-Finder/
 
 ## *Created By* 
 *** 
