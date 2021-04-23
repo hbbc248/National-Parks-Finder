@@ -14,12 +14,12 @@ var historyList = {
 
 // funtion to get parks from (word, state);
 var getPark = function(city, state) {
-    var apiUrl = "https://developer.nps.gov/api/v1/parks?q=" + city + "&stateCode=" + state + "&api_key=" + parksAPIKey;
+    var apiUrl = "https://developer.nps.gov/api/v1/parks?limit=500&q=" + city + "&stateCode=" + state + "&api_key=" + parksAPIKey;
     if (!city) {
-        var apiUrl = "https://developer.nps.gov/api/v1/parks?stateCode=" + state + "&api_key=" + parksAPIKey;
+        var apiUrl = "https://developer.nps.gov/api/v1/parks?limit=500&stateCode=" + state + "&api_key=" + parksAPIKey;
     }
     if (!state)
-    var apiUrl = "https://developer.nps.gov/api/v1/parks?q=" + city + "&api_key=" + parksAPIKey;
+    var apiUrl = "https://developer.nps.gov/api/v1/parks?limit=500&q=" + city + "&api_key=" + parksAPIKey;
     fetch(apiUrl).then(function(response){
         // request was succesful
         if(response.ok) {
